@@ -8,6 +8,9 @@ public class Skill : MonoBehaviour
     public string name;
     public int cd;
     private int curCd;
+    public int useEvo;
+    public int curUse;
+    public Skill nextEvo;
     public Effect[] effects;
 
     // Start is called before the first frame update
