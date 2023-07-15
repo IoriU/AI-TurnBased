@@ -18,11 +18,11 @@ public class GameWatcher : MonoBehaviour
         gameController = GameController.instance;
         for (int i = 0; i < GameController.instance.teams1.Length; i++)
         {
-            team1[i].onClick.AddListener(() => SetTarget("Ally", i));
+            //team1[i].onClick.AddListener(() => SetTarget("Ally", i));
         }
         for (int i = 0; i < GameController.instance.teams2.Length; i++)
         {
-            team1[i].onClick.AddListener(() => SetTarget("Ally", i));
+            //team1[i].onClick.AddListener(() => SetTarget("Ally", i));
         }
     }
     // Update is called once per frame
@@ -30,6 +30,9 @@ public class GameWatcher : MonoBehaviour
     {
         if (!gameController.isCpu1 && (gameController.battleState == GameController.BattleState.Team1))
         {
+            //SELECTING TARGET USING RAYCAST
+            SetTarget();
+
             // show UI or some shit  
             if (skill != null)
             {
@@ -73,8 +76,19 @@ public class GameWatcher : MonoBehaviour
         }
     }
 
-    public void SetTarget(string type, int pos)
+    public void SetTarget()
     {
-        // You can perform any additional actions here based on the message and value received.
+        //TESTING RAY CAST
+        var mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
+        if (hit.collider != null)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                //MASUKIN SELECTED TARGET KE DALEM CHARACTER TARGET
+                target = hit.collider.gameObject.GetComponent<Character>();
+                Debug.Log("HIT: " + hit.collider.gameObject.name);
+            }
+        }
     }
 }
