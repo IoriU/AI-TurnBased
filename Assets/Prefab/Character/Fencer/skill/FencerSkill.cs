@@ -12,7 +12,7 @@ public class FencerSkill : Skill
         target = -1;
     }
 
-    public void ActivateSkill(int selfPos, int targetPos, Character[] ally, Character[] enemy)
+    public new void ActivateSkill(int selfPos, int targetPos, Character[] ally, Character[] enemy)
     {
         if (target == targetPos)
         {
