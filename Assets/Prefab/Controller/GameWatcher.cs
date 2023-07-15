@@ -32,10 +32,12 @@ public class GameWatcher : MonoBehaviour
         {
             //SELECTING TARGET USING RAYCAST
             SetTarget();
-
             // show UI or some shit  
             if (skill != null)
             {
+
+                
+
                 // color chance
                 if (target != null)
                 {
@@ -66,6 +68,7 @@ public class GameWatcher : MonoBehaviour
     public void SetSkill(Skill skill)
     {
         this.skill = skill;
+        
     }
 
     public IEnumerator SelectTarget()
@@ -81,13 +84,18 @@ public class GameWatcher : MonoBehaviour
         //TESTING RAY CAST
         var mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
-        if (hit.collider != null)
+
+        string tag = skill.targetTeam.ToString();
+
+        if (hit.collider != null && hit.collider.CompareTag(tag))
         {
             if (Input.GetMouseButtonDown(0))
             {
+                
                 //MASUKIN SELECTED TARGET KE DALEM CHARACTER TARGET
                 target = hit.collider.gameObject.GetComponent<Character>();
                 Debug.Log("HIT: " + hit.collider.gameObject.name);
+                Debug.Log("TARGET TEAM: " + skill.targetTeam);
             }
         }
     }

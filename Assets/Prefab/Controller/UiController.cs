@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEditor.Experimental.GraphView;
 
 public class UiController : MonoBehaviour
 {
@@ -17,11 +18,13 @@ public class UiController : MonoBehaviour
         {
             Skill skill = skills[i];
             texts[i].text = skill.name;
+            
         }
     }
 
     public void OnButtonClick(int n)
     {
         watcher.SetSkill(skills[n]);
+        
     }
 }
