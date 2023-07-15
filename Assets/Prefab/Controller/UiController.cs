@@ -12,6 +12,7 @@ public class UiController : MonoBehaviour
 
     public void SetSkillButtons(Skill[] skills)
     {
+        this.skills = skills;
         for (int i = 0; i < skills.Length; i++)
         {
             Skill skill = skills[i];

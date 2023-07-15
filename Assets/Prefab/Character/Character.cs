@@ -69,12 +69,13 @@ public class Character : MonoBehaviour
 
     public void TakeDamage(float val)
     {
-        throw new System.NotImplementedException();
+        TakeDamage(val, 0.8f);
     }
 
-    public void TakeDamageIgnoreDef(float val, float defRatio)
+    public void TakeDamage(float val, float defRatio)
     {
-        throw new System.NotImplementedException();
+        float damage = val - defRatio * 0.8f;
+        curHp -= damage;
     }
 
     public void Heal(float val)
