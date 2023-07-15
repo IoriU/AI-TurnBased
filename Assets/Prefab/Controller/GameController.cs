@@ -58,6 +58,7 @@ public class GameController : MonoBehaviour
         if (battleState == BattleState.Loop)
         {
             UpdateSpeedBar(Time.deltaTime);
+            TeamTurnCheck();
         }
     }
 
@@ -68,7 +69,6 @@ public class GameController : MonoBehaviour
             chr.UpdateSpeedBar(interval);
         }
         allChar = allChar.OrderByDescending(x => x.speedBar).ToArray();
-        TeamTurnCheck();
     }
 
     private void TeamTurnCheck()

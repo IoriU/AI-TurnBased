@@ -49,4 +49,8 @@ MonoBehaviour:
   useEvo: 5
   curUse: 0
   nextEvo: {fileID: 6801379884249981732, guid: 1eba45d5e0cc58b4bb9e1f288dd455cb, type: 3}
-  effects: []
+  target: 0
+  targetType: 0
+  effects:
+  - {fileID: 0}
+  - {fileID: 0}
