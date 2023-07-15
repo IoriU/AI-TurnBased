@@ -46,7 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Piercing Lunge
   cd: 0
-  useEvo: 0
+  useToEvo: 0
   curUse: 0
   nextEvo: {fileID: 0}
-  effects: []
+  targetTeam: 0
+  helper: []

@@ -479,7 +479,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 76158762}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 476747709}
+        m_TargetAssemblyTypeName: UiController, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &76158762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -616,7 +628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b9441451c3f3bb47b0c6a06fc967146, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameController: {fileID: 0}
+  gameController: {fileID: 476747706}
   skill: {fileID: 0}
   target: {fileID: 0}
   team1: []
@@ -639,7 +651,7 @@ MonoBehaviour:
   - {fileID: 733860191}
   - {fileID: 1510150633}
   skills: []
-  watcher: {fileID: 0}
+  watcher: {fileID: 476747708}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,7 +827,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 668650038}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 476747709}
+        m_TargetAssemblyTypeName: UiController, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &668650038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1072,7 +1096,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 748653525}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 476747709}
+        m_TargetAssemblyTypeName: UiController, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &748653525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1199,7 +1235,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 926835668}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 476747709}
+        m_TargetAssemblyTypeName: UiController, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &926835668
 MonoBehaviour:
   m_ObjectHideFlags: 0

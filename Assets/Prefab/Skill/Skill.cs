@@ -18,9 +18,10 @@ public class Skill : MonoBehaviour
     {
         curCd = cd;
         curUse++;
-        if (curUse >= useToEvo)
+        if (useToEvo < 0 && curUse == useToEvo)
         {
-            ; // skill evolusi
+            int idx = Array.IndexOf(ally[targetPos].skill, this);
+            ally[targetPos].skill[idx] = nextEvo; // skill evolusi
         }
     }
 
