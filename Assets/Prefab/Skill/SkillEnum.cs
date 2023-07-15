@@ -19,9 +19,7 @@ public class SkillEnum : MonoBehaviour
 
     public enum Target
     {
-        Base,
         Self,
-        Target,
         Ally,
         Enemy
         
