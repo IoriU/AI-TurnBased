@@ -8,19 +8,38 @@ public class Skill : MonoBehaviour
     public string name;
     public int cd;
     private int curCd;
-    public int useEvo;
+    public int useToEvo;
     public int curUse;
     public Skill nextEvo;
-    public SkillEnum.Target target;
-    public SkillEnum.TargetType targetType;
-    public Effect[] effects;
+    public SkillEnum.Target targetTeam;
+    public StatHelper[] helper;
 
-    private void Start()
+    public void ActivateSkill(int selfPos, int targetPos, Character[] ally, Character[] enemy)
     {
-        effects = GetComponents<Effect>();
+        curCd = cd;
+        curUse++;
+        if (curUse >= useToEvo)
+        {
+            ; // skill evolusi
+        }
     }
 
+    public void UniqueSkill(int selfPos, int targetPos, Character[] ally, Character[] enemy)
+    { 
+        ;
+    }
 
+    public Character[] GetTargetSelection(Character[] teams)
+    {
+        return null;
+    }
+
+    [System.Serializable]
+    public struct StatHelper
+    {
+        public float baseValue;
+        public float statRatio;
+    }
 
 
 }
