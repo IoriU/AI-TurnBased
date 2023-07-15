@@ -11,29 +11,17 @@ public class Skill : MonoBehaviour
     public int useEvo;
     public int curUse;
     public Skill nextEvo;
+    public SkillEnum.Target target;
+    public SkillEnum.TargetType targetType;
     public Effect[] effects;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        effects = GetComponents<Effect>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-}
 
-[Serializable]
-public struct Effect
-{
-    public EffectEnum type;
-    public int baseVal;
-    public string stat;
-    public float ratio;
-    public string target;
-    public bool isAoe;
+
+
 }
 

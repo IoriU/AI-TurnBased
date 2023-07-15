@@ -5,7 +5,7 @@ using UnityEngine;
 public class ClassEnum : MonoBehaviour
 {
 
-    public enum CHARCLASS {
+    public enum CharClass {
         Warrior,
         Mage,
         Assasin,

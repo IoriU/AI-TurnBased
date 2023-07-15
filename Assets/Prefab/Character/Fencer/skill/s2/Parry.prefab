@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4128567151367166789}
   - component: {fileID: 6128406516461715662}
   m_Layer: 0
-  m_Name: Thrust
+  m_Name: Parry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,9 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75bd6c011302dbd418d61015119490d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Thrust
+  name: Parry
   cd: 0
   useEvo: 5
   curUse: 0
-  nextEvo: {fileID: 6801379884249981732, guid: 1eba45d5e0cc58b4bb9e1f288dd455cb, type: 3}
+  nextEvo: {fileID: 6801379884249981732, guid: c3b8e9019c198bb478cd89208147e6b6, type: 3}
+  target: 0
+  targetType: 0
   effects: []

@@ -17,12 +17,17 @@ public class GameController : MonoBehaviour
     }
 
     public static GameController instance;
+    public bool isCpu1;
     public GameObject team1Root;
-    public GameObject team2Root;
     public Character[] teams1;
+
+    public GameObject team2Root;
     public Character[] teams2;
+
     public Character[] allChar;
     public BattleState battleState;
+
+    public UiController uiController;
     void Start()
     {
         teams1 = team1Root.GetComponentsInChildren<Character>();
@@ -52,7 +57,6 @@ public class GameController : MonoBehaviour
     {
         if (battleState == BattleState.Loop)
         {
-            print(battleState + " 2");
             UpdateSpeedBar(Time.deltaTime);
         }
     }
@@ -80,9 +84,17 @@ public class GameController : MonoBehaviour
             {
                 battleState = BattleState.Team2;
             }
-            print(battleState + " 1");
             charTurn.YourTurn();
+            uiController.SetSkillButtons(charTurn.skill);
         }
     }
 
+    public void ActivateSkill(Skill skill, Character user, Character target)
+    {
+        foreach (Effect effect in skill.effects)
+        {
+            /*if (effect.type == "Ally")*/
+            ;
+        }
+    }
 }
