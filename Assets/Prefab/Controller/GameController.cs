@@ -91,10 +91,6 @@ public class GameController : MonoBehaviour
 
     public void ActivateSkill(Skill skill, Character user, Character target)
     {
-        foreach (Effect effect in skill.effects)
-        {
-            /*if (effect.type == "Ally")*/
-            ;
-        }
+        ;
     }
 }

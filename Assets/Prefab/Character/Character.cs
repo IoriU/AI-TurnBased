@@ -72,6 +72,11 @@ public class Character : MonoBehaviour
         throw new System.NotImplementedException();
     }
 
+    public void TakeDamageIgnoreDef(float val, float defRatio)
+    {
+        throw new System.NotImplementedException();
+    }
+
     public void Heal(float val)
     {
         throw new System.NotImplementedException();

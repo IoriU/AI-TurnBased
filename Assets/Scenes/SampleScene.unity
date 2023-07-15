@@ -1737,6 +1737,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7652623231701152495, guid: 50e01b1ca3d1b5e4abc628936da18a75, type: 3}
+      propertyPath: m_Transition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7652623231701152495, guid: 50e01b1ca3d1b5e4abc628936da18a75, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 2
       objectReference: {fileID: 0}
