@@ -15,7 +15,7 @@ public class Thrust : FencerSkill
         enemy[targetPos].TakeDamage(helper[0].baseValue + ally[selfPos].atk * helper[0].statRatio);
     }
 
-    public Character[] GetTargetSelection(Character[] teams)
+    public new Character[] GetTargetSelection(Character[] teams)
     {
         return new Character[] { teams[0] };
     }
