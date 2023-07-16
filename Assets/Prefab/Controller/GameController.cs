@@ -7,37 +7,48 @@ using System;
 
 public class GameController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    //Battle State untuk GameController
     public enum BattleState
     {
-        Idle,
-        Team1,
-        Team2,
-        Loop
+        IDLE,
+        TEAM1,
+        TEAM2,
+        LOOP
     }
-
+    //For Singleton
     public static GameController instance;
+
+    //Buat nentuin yang lagi jalan bot atau player 
     public bool isCpu1;
+
+    //Var for storing list of character in Team 1
     public GameObject team1Root;
     public Character[] teams1;
-
+    //Var for storing list of character in Team 2
     public GameObject team2Root;
     public Character[] teams2;
-
+    //Char in Team1 and Team2 digabung
     public Character[] allChar;
+    //Current Battle State from ENUM
     public BattleState battleState;
 
+    //For UI Purpose
     public UiController uiController;
     void Start()
     {
+        //Masukin masing masing char ke dalam tim dari child
         teams1 = team1Root.GetComponentsInChildren<Character>();
         teams2 = team2Root.GetComponentsInChildren<Character>();
         allChar = teams1.Concat(teams2).ToArray();
-        battleState = BattleState.Loop;
+
+        //Abis setup Tim, langsung masuk ke dalem state LOOP
+        battleState = BattleState.LOOP;
     }
 
     private void Awake()
     {
+        //Creating Singleton For Gamecontroller//
+
         // Check if an instance already exists
         if (instance != null && instance != this)
         {
@@ -52,38 +63,50 @@ public class GameController : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (battleState == BattleState.Loop)
+        //MAIN GAME LOOP HERE
+        if (battleState == BattleState.LOOP)
         {
+            //Update Speed Bar di semua karakter
             UpdateSpeedBar(Time.deltaTime);
+            
+            //Cek karakter di tim mana yang punya speed paling besar
             TeamTurnCheck();
         }
     }
 
     public void UpdateSpeedBar(float interval)
     {
+        //Cek semua karakter
         foreach (Character chr in allChar)
         {
+            //Update karakter tersebut
             chr.UpdateSpeedBar(interval);
         }
+
+        //Setelah update speedBar, maka urutkan semua karakter yang memiliki speed paling tinggi
         allChar = allChar.OrderByDescending(x => x.speedBar).ToArray();
     }
 
+    //Cek karakter di tim mana yang punya speed paling besar
     private void TeamTurnCheck()
     {
+        //AMbil di lokasi index paling awal, karena speedbarnya paling tinggi, kalo misal udh >=100
+        //Maka ia akan jalan, kalo speedbar allChar[0] sama allChar[1] dst itu sama gatau dah ngurutinnya hehe
         if (allChar[0].speedBar >= 100)
         {
+            //Ganti BattleState ke TEAM berapa
             Character charTurn = allChar[0];
             if (teams1.Contains<Character>(charTurn))
             {
-                battleState = BattleState.Team1;
+                battleState = BattleState.TEAM1;
             }
             else if (teams2.Contains<Character>(charTurn))
             {
-                battleState = BattleState.Team2;
+                battleState = BattleState.TEAM2;
             }
+            
             charTurn.YourTurn();
             uiController.SetSkillButtons(charTurn.skill);
         }
