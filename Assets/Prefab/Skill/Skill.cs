@@ -39,7 +39,7 @@ public class Skill : MonoBehaviour
 
     public Character[] GetTargetSelection(Character[] teams)
     {
-        return null;
+        return teams;
     }
 
     [System.Serializable]
