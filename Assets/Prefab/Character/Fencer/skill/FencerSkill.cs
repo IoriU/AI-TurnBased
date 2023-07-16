@@ -5,18 +5,31 @@ using UnityEngine;
 public class FencerSkill : Skill
 {
     private int target;
-    public Skill basic;
 
     private void Start()
     {
         target = -1;
     }
 
-    public new void ActivateSkill(int selfPos, int targetPos, Character[] ally, Character[] enemy)
+    protected void ResetTarget()
+    {
+        target = -1;
+    }
+
+    public override void ActivateSkill(int selfPos, int targetPos, Character[] ally, Character[] enemy)
     {
         if (target == targetPos)
         {
-            basic.UniqueSkill(0, targetPos, null, null);
+            target++;
+            for (int i = 0; i < target; i++)
+            {
+                skillOwner.skill[0].UniqueSkill(0, targetPos, ally, enemy);
+                print("follow up " + i);
+            }
+        }
+        else
+        {
+            target = targetPos;
         }
         base.ActivateSkill(selfPos, targetPos, ally, enemy);
     }

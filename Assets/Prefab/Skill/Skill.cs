@@ -7,7 +7,11 @@ public class Skill : MonoBehaviour
 {
     //NAMING SKIL, EX: Thrust, Arrow Rain, Heal, or manymnay moar
     public string name;
-    //Stat for skill cooldown
+
+//Stat for skill cooldown
+    protected Character skillOwner;
+    protected int skillPos;
+
     public int cd;
     private int curCd;
     //EXP needed for skill Evo
@@ -20,24 +24,36 @@ public class Skill : MonoBehaviour
     //Ini gatau apa njirr
     public StatHelper[] helper;
 
-    //Jalankan skill
-    public void ActivateSkill(int selfPos, int targetPos, Character[] ally, Character[] enemy)
+     // Give character and position of skill
+    public void SetSkillOwner(Character chr, int pos)
+    {
+        skillOwner = chr;
+        skillPos = pos;
+        if (nextEvo)
+        {
+            nextEvo.SetSkillOwner(chr, pos);
+        }
+        
+    }
+    
+//Jalankan skill
+    public virtual void ActivateSkill(int selfPos, int targetPos, Character[] ally, Character[] enemy)
+
     {
         curCd = cd;
         curUse++;
         if (useToEvo < 0 && curUse == useToEvo)
         {
-            int idx = Array.IndexOf(ally[targetPos].skill, this);
-            ally[targetPos].skill[idx] = nextEvo; // skill evolusi
+            skillOwner.skill[skillPos] = nextEvo; // skill evolusi
         }
     }
 
-    public void UniqueSkill(int selfPos, int targetPos, Character[] ally, Character[] enemy)
+    public virtual void UniqueSkill(int selfPos, int targetPos, Character[] ally, Character[] enemy)
     { 
         ;
     }
 
-    public Character[] GetTargetSelection(Character[] teams)
+    public virtual Character[] GetTargetSelection(Character[] teams)
     {
         return teams;
     }

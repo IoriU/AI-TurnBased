@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6079808425850874082}
-  - component: {fileID: 6801379884249981732}
+  - component: {fileID: -7042005000521490121}
   m_Layer: 0
   m_Name: Piercing Lunge
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6801379884249981732
+--- !u!114 &-7042005000521490121
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,13 +41,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 3715899923718952856}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75bd6c011302dbd418d61015119490d2, type: 3}
+  m_Script: {fileID: 11500000, guid: fcdf6a88166b42647a83a66b4db53065, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   name: Piercing Lunge
   cd: 0
-  useToEvo: 0
+  useToEvo: -1
   curUse: 0
   nextEvo: {fileID: 0}
-  targetTeam: 0
-  helper: []
+  targetTeam: 2
+  helper:
+  - baseValue: 320
+    statRatio: 1

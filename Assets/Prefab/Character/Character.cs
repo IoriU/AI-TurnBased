@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -40,19 +42,22 @@ public class Character : MonoBehaviour
    
     //List skill yang dimiliki oleh character
     public Skill[] skill;
-
-    //Button buat apa njirrr
-    public Button button;
     
     //Setup/Init Character
     void Start()
     {
-        this.curHp = hp;
-        this.hpBar.InitValue(hp);
-        this.curAtk = atk;
-        this.curDef = def;
-        this.curSpeed = speed;
-        this.speedBarObj.InitValue(100);
+
+        curHp = hp;
+        hpBar.InitValue(hp);
+        curAtk = atk;
+        curDef = def;
+        curSpeed = speed;
+        speedBarObj.InitValue(100);
+        for (int i = 0; i < skill.Length; i++)
+        {
+            skill[i].SetSkillOwner(this, i);
+        }
+
     }
 
     void Update()
@@ -63,9 +68,7 @@ public class Character : MonoBehaviour
             //Masih Testing kah
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                speedBar = 0;
-                battleState = BattleState.IDLE;
-                GameController.instance.battleState = GameController.BattleState.LOOP;
+                GameController.instance.battleState = GameController.BattleState.Loop;
             }
         }
     }
@@ -74,6 +77,13 @@ public class Character : MonoBehaviour
     public void YourTurn()
     {
         battleState = BattleState.TURN;
+    }
+
+    public void NextTurn()
+    {
+        speedBar = 0;
+        speedBarObj.UpdateVal(speedBar);
+        battleState = BattleState.Idle;
     }
 
     //Update character SpeedBar tiap turn selesai, nanti dipanggil di GameController
@@ -92,7 +102,10 @@ public class Character : MonoBehaviour
     public void TakeDamage(float val, float defRatio)
     {
         float damage = val - defRatio * 0.8f;
+        Debug.Log(string.Format("{0} take {1} damages.", name, damage));
         curHp -= damage;
+        
+        hpBar.UpdateVal(curHp);
     }
 
     public void Heal(float val)

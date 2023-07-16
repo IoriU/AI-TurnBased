@@ -17,6 +17,7 @@ public class GameWatcher : MonoBehaviour
     //button njirrr
     public Button[] team1;
     public Button[] team2;
+    private bool isRun;
 
     private void Start()
     {
@@ -36,31 +37,22 @@ public class GameWatcher : MonoBehaviour
                 SetTarget();
 
                 // color chance
-                if (target != null)
+/*                if (target != null)
                 {
                     // aktifin skill
                     target = null;
                     skill = null;
                 }
-            }
+*/            }
         }
-    }
 
-    public IEnumerator PlayerTurn()
-    {
-        StartCoroutine(SelectSkill());
-        yield return SelectSkill();
-        StartCoroutine(SelectTarget());
-        yield return SelectTarget();
-    }
-
-    public IEnumerator SelectSkill()
-    {
-        while (skill != null)
+        if (skill != null && target != null && !isRun)
         {
-            yield return null;
+            isRun = true;
+            gameController.ActivateSkill(skill, target);
         }
     }
+
 
     public void SetSkill(Skill skill)
     {
@@ -68,13 +60,6 @@ public class GameWatcher : MonoBehaviour
         
     }
 
-    public IEnumerator SelectTarget()
-    {
-        while (target != null)
-        {
-            yield return null;
-        }
-    }
 
     public void SetTarget()
     {
@@ -112,5 +97,12 @@ public class GameWatcher : MonoBehaviour
             }
         }
 
+    }
+
+    public void NextTurn()
+    {
+        skill = null;
+        target = null;
+        isRun = false;
     }
 }

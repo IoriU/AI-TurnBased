@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4128567151367166789}
-  - component: {fileID: 6128406516461715662}
+  - component: {fileID: 8850085127974093668}
   m_Layer: 0
   m_Name: Thrust
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6128406516461715662
+--- !u!114 &8850085127974093668
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,13 +41,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5195791668095594583}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75bd6c011302dbd418d61015119490d2, type: 3}
+  m_Script: {fileID: 11500000, guid: 6605d1710d0b63047b719f05eeea9280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   name: Thrust
   cd: 0
-  useToEvo: 0
+  useToEvo: 5
   curUse: 0
-  nextEvo: {fileID: 6801379884249981732, guid: 1eba45d5e0cc58b4bb9e1f288dd455cb, type: 3}
+  nextEvo: {fileID: -7042005000521490121, guid: 1eba45d5e0cc58b4bb9e1f288dd455cb, type: 3}
   targetTeam: 2
-  helper: []
+  helper:
+  - baseValue: 200
+    statRatio: 1
