@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,8 +31,6 @@ public class Character : MonoBehaviour
     public BattleState battleState;
 
     public Skill[] skill;
-
-    public Button button;
     
     void Start()
     {
@@ -40,6 +40,10 @@ public class Character : MonoBehaviour
         curDef = def;
         curSpeed = speed;
         speedBarObj.InitValue(100);
+        for (int i = 0; i < skill.Length; i++)
+        {
+            skill[i].SetSkillOwner(this, i);
+        }
     }
 
     // Update is called once per frame
@@ -49,8 +53,6 @@ public class Character : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                speedBar = 0;
-                battleState = BattleState.Idle;
                 GameController.instance.battleState = GameController.BattleState.Loop;
             }
         }
@@ -59,6 +61,13 @@ public class Character : MonoBehaviour
     public void YourTurn()
     {
         battleState = BattleState.Turn;
+    }
+
+    public void NextTurn()
+    {
+        speedBar = 0;
+        speedBarObj.UpdateVal(speedBar);
+        battleState = BattleState.Idle;
     }
 
     public void UpdateSpeedBar(float interval)
@@ -75,7 +84,10 @@ public class Character : MonoBehaviour
     public void TakeDamage(float val, float defRatio)
     {
         float damage = val - defRatio * 0.8f;
+        Debug.Log(string.Format("{0} take {1} damages.", name, damage));
         curHp -= damage;
+        
+        hpBar.UpdateVal(curHp);
     }
 
     public void Heal(float val)

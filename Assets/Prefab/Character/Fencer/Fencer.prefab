@@ -157,7 +157,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3767065949991102383, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
-      insertIndex: 1
+      insertIndex: -1
       addedObject: {fileID: 3497362036632524923}
   m_SourcePrefab: {fileID: 100100000, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
 --- !u!114 &1254633506243752341 stripped
@@ -191,18 +191,18 @@ MonoBehaviour:
   name: 
   hp: 1000
   hpBar: {fileID: 4463014309988942964}
-  atk: 0
+  atk: 20
   def: 100
   speed: 100
-  speedBar: 20
+  speedBar: 0
   speedBarObj: {fileID: 1254633506243752341}
   barRatio: 20
   battleState: 0
   skill:
-  - {fileID: 6128406516461715662, guid: bac19dd3894366c44851edd4983e7677, type: 3}
-  - {fileID: 6128406516461715662, guid: f40be28e36124f744bab8a86d5f448d9, type: 3}
-  - {fileID: 6128406516461715662, guid: 3879d85e534035a46b59e1bd22b7590a, type: 3}
-  - {fileID: 6128406516461715662, guid: 5831edb7260b093408c4925413aa29b8, type: 3}
+  - {fileID: 8850085127974093668, guid: bac19dd3894366c44851edd4983e7677, type: 3}
+  - {fileID: -4344078606574052098, guid: f40be28e36124f744bab8a86d5f448d9, type: 3}
+  - {fileID: 5463206437115158878, guid: 3879d85e534035a46b59e1bd22b7590a, type: 3}
+  - {fileID: -4549592766244692992, guid: 5831edb7260b093408c4925413aa29b8, type: 3}
 --- !u!114 &4463014309988942964 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1310817323025673815, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}

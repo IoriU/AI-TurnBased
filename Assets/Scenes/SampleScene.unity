@@ -600,7 +600,9 @@ MonoBehaviour:
   teams2: []
   allChar: []
   battleState: 0
+  charTurn: {fileID: 0}
   uiController: {fileID: 476747709}
+  gameWatcher: {fileID: 0}
 --- !u!4 &476747707
 Transform:
   m_ObjectHideFlags: 0
@@ -1661,6 +1663,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3497362036632524923, guid: 50e01b1ca3d1b5e4abc628936da18a75, type: 3}
+      propertyPath: atk
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3497362036632524923, guid: 50e01b1ca3d1b5e4abc628936da18a75, type: 3}
+      propertyPath: def
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3497362036632524923, guid: 50e01b1ca3d1b5e4abc628936da18a75, type: 3}
       propertyPath: name
       value: Fencer
       objectReference: {fileID: 0}
@@ -1672,6 +1682,10 @@ PrefabInstance:
       propertyPath: barRatio
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 3497362036632524923, guid: 50e01b1ca3d1b5e4abc628936da18a75, type: 3}
+      propertyPath: skill.Array.data[0]
+      value: 
+      objectReference: {fileID: 8850085127974093668, guid: bac19dd3894366c44851edd4983e7677, type: 3}
     - target: {fileID: 3715728315542534362, guid: 50e01b1ca3d1b5e4abc628936da18a75, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1829,6 +1843,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 408206506945160590, guid: 20a476abe648d5a4b9bd262fe97d0e42, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 1322335459058668567, guid: 20a476abe648d5a4b9bd262fe97d0e42, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1839,7 +1857,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2856764361332422223, guid: 20a476abe648d5a4b9bd262fe97d0e42, type: 3}
       propertyPath: speed
-      value: 15
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2856764361332422223, guid: 20a476abe648d5a4b9bd262fe97d0e42, type: 3}
+      propertyPath: speedBar
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2856764361332422223, guid: 20a476abe648d5a4b9bd262fe97d0e42, type: 3}
       propertyPath: skill.Array.size
@@ -1848,19 +1870,19 @@ PrefabInstance:
     - target: {fileID: 2856764361332422223, guid: 20a476abe648d5a4b9bd262fe97d0e42, type: 3}
       propertyPath: skill.Array.data[0]
       value: 
-      objectReference: {fileID: 6801379884249981732, guid: 1eba45d5e0cc58b4bb9e1f288dd455cb, type: 3}
+      objectReference: {fileID: -7042005000521490121, guid: 1eba45d5e0cc58b4bb9e1f288dd455cb, type: 3}
     - target: {fileID: 2856764361332422223, guid: 20a476abe648d5a4b9bd262fe97d0e42, type: 3}
       propertyPath: skill.Array.data[1]
       value: 
-      objectReference: {fileID: 6801379884249981732, guid: c3b8e9019c198bb478cd89208147e6b6, type: 3}
+      objectReference: {fileID: -7042005000521490121, guid: 1eba45d5e0cc58b4bb9e1f288dd455cb, type: 3}
     - target: {fileID: 2856764361332422223, guid: 20a476abe648d5a4b9bd262fe97d0e42, type: 3}
       propertyPath: skill.Array.data[2]
       value: 
-      objectReference: {fileID: 6801379884249981732, guid: 0f320012369622c4c8b10b736f44588f, type: 3}
+      objectReference: {fileID: -7042005000521490121, guid: 1eba45d5e0cc58b4bb9e1f288dd455cb, type: 3}
     - target: {fileID: 2856764361332422223, guid: 20a476abe648d5a4b9bd262fe97d0e42, type: 3}
       propertyPath: skill.Array.data[3]
       value: 
-      objectReference: {fileID: 6801379884249981732, guid: 28f4005fbbc512a4f968d05ccb667159, type: 3}
+      objectReference: {fileID: -7042005000521490121, guid: 1eba45d5e0cc58b4bb9e1f288dd455cb, type: 3}
     - target: {fileID: 3288369495343780056, guid: 20a476abe648d5a4b9bd262fe97d0e42, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

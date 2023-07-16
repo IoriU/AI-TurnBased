@@ -6,6 +6,8 @@ using UnityEngine;
 public class Skill : MonoBehaviour
 {
     public string name;
+    protected Character skillOwner;
+    protected int skillPos;
     public int cd;
     private int curCd;
     public int useToEvo;
@@ -14,23 +16,34 @@ public class Skill : MonoBehaviour
     public SkillEnum.Target targetTeam;
     public StatHelper[] helper;
 
-    public void ActivateSkill(int selfPos, int targetPos, Character[] ally, Character[] enemy)
+     // Give character and position of skill
+    public void SetSkillOwner(Character chr, int pos)
+    {
+        skillOwner = chr;
+        skillPos = pos;
+        if (nextEvo)
+        {
+            nextEvo.SetSkillOwner(chr, pos);
+        }
+        
+    }
+
+    public virtual void ActivateSkill(int selfPos, int targetPos, Character[] ally, Character[] enemy)
     {
         curCd = cd;
         curUse++;
         if (useToEvo < 0 && curUse == useToEvo)
         {
-            int idx = Array.IndexOf(ally[targetPos].skill, this);
-            ally[targetPos].skill[idx] = nextEvo; // skill evolusi
+            skillOwner.skill[skillPos] = nextEvo; // skill evolusi
         }
     }
 
-    public void UniqueSkill(int selfPos, int targetPos, Character[] ally, Character[] enemy)
+    public virtual void UniqueSkill(int selfPos, int targetPos, Character[] ally, Character[] enemy)
     { 
         ;
     }
 
-    public Character[] GetTargetSelection(Character[] teams)
+    public virtual Character[] GetTargetSelection(Character[] teams)
     {
         return null;
     }

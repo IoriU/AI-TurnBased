@@ -4,6 +4,8 @@ using System.Runtime.InteropServices;
 using UnityEngine;
 using System.Linq;
 using System;
+using static UnityEngine.EventSystems.EventTrigger;
+using JetBrains.Annotations;
 
 public class GameController : MonoBehaviour
 {
@@ -26,14 +28,17 @@ public class GameController : MonoBehaviour
 
     public Character[] allChar;
     public BattleState battleState;
-
+    public Character charTurn;
     public UiController uiController;
+    public GameWatcher gameWatcher;
     void Start()
     {
         teams1 = team1Root.GetComponentsInChildren<Character>();
         teams2 = team2Root.GetComponentsInChildren<Character>();
         allChar = teams1.Concat(teams2).ToArray();
         battleState = BattleState.Loop;
+        uiController = GetComponent<UiController>();
+        gameWatcher = GetComponent<GameWatcher>();
     }
 
     private void Awake()
@@ -75,7 +80,7 @@ public class GameController : MonoBehaviour
     {
         if (allChar[0].speedBar >= 100)
         {
-            Character charTurn = allChar[0];
+            charTurn = allChar[0];
             if (teams1.Contains<Character>(charTurn))
             {
                 battleState = BattleState.Team1;
@@ -89,8 +94,33 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void ActivateSkill(Skill skill, Character user, Character target)
+    public void ActivateSkill(Skill skill, Character target)
     {
-        ;
+        int userPos = -1, targetPos = -1;
+        Character[] ally = null, enemy = null;
+        if (battleState == BattleState.Team1)
+        {
+            userPos = Array.IndexOf(teams1, charTurn);
+            targetPos = Array.IndexOf(teams2, target);
+            ally = teams1;
+            enemy = teams2;
+        } else if (battleState == BattleState.Team2)
+            {
+                userPos = Array.IndexOf(teams2, charTurn);
+                targetPos = Array.IndexOf(teams1, target);
+                ally = teams2;
+                enemy = teams1;
+            }
+        print("game controller");
+        skill.ActivateSkill(userPos, targetPos, ally, enemy);
+        NextTurn();
+    }
+
+    public void NextTurn()
+    {
+        charTurn = null;
+        uiController.NextTurn();
+        gameWatcher.NextTurn();
+        battleState = BattleState.Loop;
     }
 }
