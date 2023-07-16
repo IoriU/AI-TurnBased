@@ -55,14 +55,35 @@ public class GameWatcher : MonoBehaviour
         
     }
 
-
+    //Set Selected Target to attack
     public void SetTarget()
     {
-        //Target yang bisa diserang oleh skillnya
-        selectableTarget = skill.GetTargetSelection(gameController.teams2);
-        foreach (Character chr in selectableTarget)
+        //Refresh Selected Target COlor
+        foreach (Character chr in gameController.teams2)
+        {
+            chr.GetComponentInChildren<SpriteRenderer>().color = Color.red;
+        }
+        foreach (Character chr in gameController.teams1)
         {
             chr.GetComponentInChildren<SpriteRenderer>().color = Color.white;
+        }
+
+        //Target yang bisa diserang oleh skillnya
+        if (skill.targetTeam == SkillEnum.Target.Ally)
+        {
+            selectableTarget = skill.GetTargetSelection(gameController.teams1);
+        } else if(skill.targetTeam == SkillEnum.Target.Enemy)
+        {
+            selectableTarget = skill.GetTargetSelection(gameController.teams2);
+        } else
+        {
+            selectableTarget = new Character[1];
+            selectableTarget[0] = gameController.charTurn;
+        }
+
+        foreach (Character chr in selectableTarget)
+        {
+            chr.GetComponentInChildren<SpriteRenderer>().color = Color.green;
         }
 
         //Cek jika mouse klik kiri melakukan input, supaya raycast tidak dijalankan tiap thickkk
@@ -84,6 +105,7 @@ public class GameWatcher : MonoBehaviour
                 //Masukin ke dalam character target
                 target = hit.collider.gameObject.GetComponent<Character>();
 
+                
                 //Ganti Warna Musuh Ke semula
                 foreach (Character chr in selectableTarget)
                 {
@@ -91,7 +113,7 @@ public class GameWatcher : MonoBehaviour
                 }
             }
         }
-
+        
     }
 
     public void NextTurn()
