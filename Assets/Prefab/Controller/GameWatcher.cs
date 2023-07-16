@@ -12,6 +12,8 @@ public class GameWatcher : MonoBehaviour
     public Skill skill;
     //Target character(s) serangan dari skill yang sedang digunakan 
     public Character target;
+    //Daftar target yang bisa diserang, buat sekarang tandanya masih warna putih
+    public Character[] selectableTarget;
     //button njirrr
     public Button[] team1;
     public Button[] team2;
@@ -76,8 +78,16 @@ public class GameWatcher : MonoBehaviour
 
     public void SetTarget()
     {
+        //Target yang bisa diserang oleh skillnya
+        selectableTarget = skill.GetTargetSelection(gameController.teams2);
+        foreach (Character chr in selectableTarget)
+        {
+            chr.GetComponentInChildren<SpriteRenderer>().color = Color.white;
+        }
+
         //Cek jika mouse klik kiri melakukan input, supaya raycast tidak dijalankan tiap thickkk
-        if(Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButtonDown(0))
+        {
             //Get Mouse Position dari layar, output => (x,y)
             var mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             //Masukin posisi mouse ke dalam raycast
@@ -85,19 +95,22 @@ public class GameWatcher : MonoBehaviour
 
             //Cek Tag dari skill yang digunakan, afakah nyerang musuh saja, atau tim
             //Input => ("Ally","Enemy","Self")
-            string tag = skill.targetTeam.ToString();
+            //string tag = skill.target.ToString();
 
             //Misal posisi mouse yang diklik terdapat collider dan Tag dari object yang terkena raycast
             //Dan Tag nya bernilai benar
-            if (hit.collider != null && hit.collider.CompareTag(tag))
+            if (hit.collider != null && selectableTarget.Contains(hit.collider.gameObject.GetComponent<Character>()))
             {
                 //Masukin ke dalam character target
                 target = hit.collider.gameObject.GetComponent<Character>();
-                //Debugging
-                Debug.Log("HIT: " + hit.collider.gameObject.name);
-                Debug.Log("TARGET TEAM: " + skill.targetTeam);
+
+                //Ganti Warna Musuh Ke semula
+                foreach (Character chr in selectableTarget)
+                {
+                    chr.GetComponentInChildren<SpriteRenderer>().color = Color.red;
+                }
             }
         }
-        
+
     }
 }
