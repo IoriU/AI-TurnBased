@@ -27,7 +27,7 @@ public class GameWatcher : MonoBehaviour
 
     void Update()
     {
-        if (!gameController.isCpu1 && (gameController.battleState == GameController.BattleState.TEAM1))
+        if (!gameController.isCpu1 && (gameController.battleState == GameController.BattleState.TEAM1) && !isRun)
         {
             
             // show UI or some shit  
@@ -37,20 +37,15 @@ public class GameWatcher : MonoBehaviour
                 SetTarget();
 
                 // color chance
-/*                if (target != null)
+                if (target != null)
                 {
                     // aktifin skill
-                    target = null;
-                    skill = null;
+                    isRun = true;
+                    gameController.ActivateSkill(skill, target);
                 }
-*/            }
+            }
         }
 
-        if (skill != null && target != null && !isRun)
-        {
-            isRun = true;
-            gameController.ActivateSkill(skill, target);
-        }
     }
 
 

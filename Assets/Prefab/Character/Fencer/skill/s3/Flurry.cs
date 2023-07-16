@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Flurry : FencerSkill
 {
-    public new void ActivateSkill(int selfPos, int targetPos, Character[] ally, Character[] enemy)
+    public override void ActivateSkill(int selfPos, int targetPos, Character[] ally, Character[] enemy)
     {
         enemy[targetPos].TakeDamage(helper[0].baseValue + skillOwner.atk * helper[0].statRatio);
         enemy[targetPos].TakeDamage(helper[1].baseValue + skillOwner.atk * helper[1].statRatio);
@@ -12,8 +12,8 @@ public class Flurry : FencerSkill
         base.ActivateSkill(selfPos, targetPos, ally, enemy);
     }
 
-    public new Character[] GetTargetSelection(Character[] teams)
+    public override Character[] GetTargetSelection(Character[] teams)
     {
-        return new Character[] { teams[0] };
+        return new Character[] { teams[0], teams[teams.Length - 1] };
     }
 }

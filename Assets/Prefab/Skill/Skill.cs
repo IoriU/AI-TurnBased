@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Skill : MonoBehaviour
@@ -9,8 +10,8 @@ public class Skill : MonoBehaviour
     public string name;
 
 //Stat for skill cooldown
-    protected Character skillOwner;
-    protected int skillPos;
+    public Character skillOwner;
+    public int skillPos;
 
     public int cd;
     private int curCd;
@@ -24,15 +25,20 @@ public class Skill : MonoBehaviour
     //Ini gatau apa njirr
     public StatHelper[] helper;
 
-     // Give character and position of skill
+    // Give character and position of skill
+
+    // sama kaya start manual
     public void SetSkillOwner(Character chr, int pos)
     {
+        curCd = 0;
+        curUse = 0;
         skillOwner = chr;
         skillPos = pos;
         if (nextEvo)
         {
             nextEvo.SetSkillOwner(chr, pos);
         }
+        Debug.Log("selesai set owner");
         
     }
     
@@ -42,9 +48,11 @@ public class Skill : MonoBehaviour
     {
         curCd = cd;
         curUse++;
-        if (useToEvo < 0 && curUse == useToEvo)
+        if (useToEvo > 0 && curUse == useToEvo)
         {
-            skillOwner.skill[skillPos] = nextEvo; // skill evolusi
+            print("harusnya evo");
+            ally[selfPos].skill[skillPos] = nextEvo;
+            //skillOwner.skill[skillPos] = nextEvo; // skill evolusi
         }
     }
 

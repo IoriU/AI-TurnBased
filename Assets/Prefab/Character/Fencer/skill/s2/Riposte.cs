@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Riposte : FencerSkill
 {
-    public new void ActivateSkill(int selfPos, int targetPos, Character[] ally, Character[] enemy)
+    public override void ActivateSkill(int selfPos, int targetPos, Character[] ally, Character[] enemy)
     {
         ;
         ResetTarget();
         base.ActivateSkill(selfPos, targetPos, ally, enemy);
     }
 
-    public new Character[] GetTargetSelection(Character[] teams)
+    public override Character[] GetTargetSelection(Character[] teams)
     {
         return new Character[] { skillOwner };
     }

@@ -68,7 +68,7 @@ public class Character : MonoBehaviour
             //Masih Testing kah
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                GameController.instance.battleState = GameController.BattleState.Loop;
+                GameController.instance.battleState = GameController.BattleState.LOOP;
             }
         }
     }
@@ -83,7 +83,7 @@ public class Character : MonoBehaviour
     {
         speedBar = 0;
         speedBarObj.UpdateVal(speedBar);
-        battleState = BattleState.Idle;
+        battleState = BattleState.IDLE;
     }
 
     //Update character SpeedBar tiap turn selesai, nanti dipanggil di GameController

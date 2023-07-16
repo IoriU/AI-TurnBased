@@ -46,7 +46,7 @@ public class GameController : MonoBehaviour
         allChar = teams1.Concat(teams2).ToArray();
         
         //Abis setup Tim, langsung masuk ke dalem state LOOP
-        battleState = BattleState.Loop;
+        battleState = BattleState.LOOP;
         uiController = GetComponent<UiController>();
         gameWatcher = GetComponent<GameWatcher>();
 
@@ -125,13 +125,13 @@ public class GameController : MonoBehaviour
     {
         int userPos = -1, targetPos = -1;
         Character[] ally = null, enemy = null;
-        if (battleState == BattleState.Team1)
+        if (battleState == BattleState.TEAM1)
         {
             userPos = Array.IndexOf(teams1, charTurn);
             targetPos = Array.IndexOf(teams2, target);
             ally = teams1;
             enemy = teams2;
-        } else if (battleState == BattleState.Team2)
+        } else if (battleState == BattleState.TEAM2)
             {
                 userPos = Array.IndexOf(teams2, charTurn);
                 targetPos = Array.IndexOf(teams1, target);
@@ -145,9 +145,11 @@ public class GameController : MonoBehaviour
 
     public void NextTurn()
     {
+
+        charTurn.NextTurn();
         charTurn = null;
         uiController.NextTurn();
         gameWatcher.NextTurn();
-        battleState = BattleState.Loop;
+        battleState = BattleState.LOOP;
     }
 }
