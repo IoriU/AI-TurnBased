@@ -8,32 +8,45 @@ using UnityEngine.UI;
 
 public class Character : MonoBehaviour
 {
-    // Start is called before the first frame update
+    //BATTLE STATE FOR CHARACTER
     public enum BattleState
     {
-        Idle,
-        Turn
+        IDLE,
+        TURN
     }
 
-    public string name;
-    public float hp;
-    private float curHp;
-    public ProgressBar hpBar;
-    public float atk;
-    private float curAtk;
-    public float def;
-    private float curDef;
-    public float speed;
-    private float curSpeed;
-    public float speedBar;
-    public ProgressBar speedBarObj;
-    public float barRatio;
+    //Value untuk menyimpan state pada character => IDLE or Turn
     public BattleState battleState;
 
+    //NAMING CHARACTER, EX: Fencer, archer, bard, or manymnay moar
+    public string name;
+    
+    //Health prop.
+    public float hp; //Initial / base hp from character
+    private float curHp; //Current hp after taking some damage or get some heal
+    public ProgressBar hpBar; //For UI purpose
+    //Attack prop.
+    public float atk; //Initial / base attack from character
+    private float curAtk; //Dynamic stat of attack
+    //Defence prop.
+    public float def; //Initial / base defence from character
+    private float curDef; //Dynamic stat of defence
+    //Speed prop
+    public float speed; //Initial / base speed from character
+    private float curSpeed; //Dynamic stat of defence
+    //Bagian dari prop speed yang nentuin dia bakal jalan di turn tersebut atau tidak,
+    //Ex, bila speedBar lebih dari 100, maka chara tersebut akan jalan.
+    public float speedBar;
+    public ProgressBar speedBarObj; //For UI Purpose
+    public float barRatio; 
+   
+    //List skill yang dimiliki oleh character
     public Skill[] skill;
     
+    //Setup/Init Character
     void Start()
     {
+
         curHp = hp;
         hpBar.InitValue(hp);
         curAtk = atk;
@@ -44,13 +57,15 @@ public class Character : MonoBehaviour
         {
             skill[i].SetSkillOwner(this, i);
         }
+
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (battleState == BattleState.Turn)
+        //BATTLESTATE check
+        if (battleState == BattleState.TURN)
         {
+            //Masih Testing kah
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 GameController.instance.battleState = GameController.BattleState.Loop;
@@ -58,9 +73,10 @@ public class Character : MonoBehaviour
         }
     }
 
+    //Ganti Battle State Character
     public void YourTurn()
     {
-        battleState = BattleState.Turn;
+        battleState = BattleState.TURN;
     }
 
     public void NextTurn()
@@ -70,6 +86,8 @@ public class Character : MonoBehaviour
         battleState = BattleState.Idle;
     }
 
+    //Update character SpeedBar tiap turn selesai, nanti dipanggil di GameController
+    //Interval parameter untuk getGameDeltaTime
     public void UpdateSpeedBar(float interval)
     {
         speedBar += curSpeed * interval * barRatio;
