@@ -38,6 +38,7 @@ public class GameController : MonoBehaviour
     //For UI Purpose
     public UiController uiController;
     public GameWatcher gameWatcher;
+
     void Start()
     {
         //Masukin masing masing char ke dalam tim dari child
@@ -75,11 +76,17 @@ public class GameController : MonoBehaviour
         //MAIN GAME LOOP HERE
         if (battleState == BattleState.LOOP)
         {
+            
             //Update Speed Bar di semua karakter
             UpdateSpeedBar(Time.deltaTime);
             
             //Cek karakter di tim mana yang punya speed paling besar
             TeamTurnCheck();
+        }
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            NextTurn();
         }
     }
 
@@ -138,7 +145,7 @@ public class GameController : MonoBehaviour
                 ally = teams2;
                 enemy = teams1;
             }
-        print("game controller");
+        //print("game controller");
         skill.ActivateSkill(userPos, targetPos, ally, enemy);
         NextTurn();
     }

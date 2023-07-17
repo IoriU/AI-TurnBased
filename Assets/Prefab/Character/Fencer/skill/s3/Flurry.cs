@@ -9,6 +9,11 @@ public class Flurry : FencerSkill
         enemy[targetPos].TakeDamage(helper[0].baseValue + skillOwner.atk * helper[0].statRatio);
         enemy[targetPos].TakeDamage(helper[1].baseValue + skillOwner.atk * helper[1].statRatio);
         enemy[targetPos].TakeDamage(helper[2].baseValue + skillOwner.atk * helper[2].statRatio);
+
+        //Applied Status Effect
+        StatusEffect insEffect = Instantiate(status);
+        enemy[targetPos].ApplyEffect(insEffect);
+
         base.ActivateSkill(selfPos, targetPos, ally, enemy);
     }
 

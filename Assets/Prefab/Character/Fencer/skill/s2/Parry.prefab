@@ -45,9 +45,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Parry
+  skillOwner: {fileID: 0}
+  skillPos: 1
   cd: 3
   useToEvo: 4
-  curUse: 0
+  curUse: 2
   nextEvo: {fileID: 4976733762529122563, guid: c3b8e9019c198bb478cd89208147e6b6, type: 3}
-  targetTeam: 0
+  targetTeam: 2
   helper: []
+  status: {fileID: 2095984621207466058, guid: 10a6d1dea59f4db40ad9b2ca98c1b61b, type: 3}

@@ -24,7 +24,7 @@ public class FencerSkill : Skill
             for (int i = 0; i < target; i++)
             {
                 skillOwner.skill[0].UniqueSkill(0, targetPos, ally, enemy);
-                print("follow up " + i);
+                //print("follow up " + i);
             }
         }
         else

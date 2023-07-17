@@ -42,9 +42,11 @@ public class GameWatcher : MonoBehaviour
                     // aktifin skill
                     isRun = true;
                     gameController.ActivateSkill(skill, target);
+                    
+
                 }
             }
-        }
+        } 
 
     }
 
@@ -85,7 +87,7 @@ public class GameWatcher : MonoBehaviour
         {
             chr.GetComponentInChildren<SpriteRenderer>().color = Color.green;
         }
-
+        
         //Cek jika mouse klik kiri melakukan input, supaya raycast tidak dijalankan tiap thickkk
         if (Input.GetMouseButtonDown(0))
         {

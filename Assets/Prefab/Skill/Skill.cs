@@ -9,7 +9,7 @@ public class Skill : MonoBehaviour
     //NAMING SKIL, EX: Thrust, Arrow Rain, Heal, or manymnay moar
     public string name;
 
-//Stat for skill cooldown
+    //Stat for skill cooldown
     public Character skillOwner;
     public int skillPos;
 
@@ -25,7 +25,12 @@ public class Skill : MonoBehaviour
     //Ini gatau apa njirr
     public StatHelper[] helper;
 
+    //Add Status Effect
+    public StatusEffect status;
+
     // Give character and position of skill
+
+
 
     // sama kaya start manual
     public void SetSkillOwner(Character chr, int pos)
@@ -42,15 +47,17 @@ public class Skill : MonoBehaviour
         
     }
     
-//Jalankan skill
+    //Jalankan skill
     public virtual void ActivateSkill(int selfPos, int targetPos, Character[] ally, Character[] enemy)
 
     {
+        //Set and adding exp for skill to evo
         curCd = cd;
         curUse++;
+        //Statement for checking skill ready for evo or not
         if (useToEvo > 0 && curUse == useToEvo)
         {
-            print("harusnya evo");
+            //print("harusnya evo");
             ally[selfPos].skill[skillPos] = nextEvo;
             //skillOwner.skill[skillPos] = nextEvo; // skill evolusi
         }

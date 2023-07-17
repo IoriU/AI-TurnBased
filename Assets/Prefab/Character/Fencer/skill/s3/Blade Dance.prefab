@@ -63,3 +63,4 @@ MonoBehaviour:
     statRatio: 0.2
   - baseValue: 50
     statRatio: 0.2
+  status: {fileID: 0}
