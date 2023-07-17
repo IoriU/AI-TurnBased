@@ -89,11 +89,11 @@ public class GameController : MonoBehaviour
         foreach (Character.Base chr in allChar)
         {
             //Update karakter tersebut
-            /*chr.UpdateSpeedBar(interval);*/
+            chr.speed.UpdateSpeedBar(interval);
         }
 
         //Setelah update speedBar, maka urutkan semua karakter yang memiliki speed paling tinggi
-        /*allChar = allChar.OrderByDescending(x => x.speedBar).ToArray();*/
+        allChar = allChar.OrderByDescending(x => x.speed.speedBar).ToArray();
     }
 
     //Cek karakter di tim mana yang punya speed paling besar
@@ -101,24 +101,24 @@ public class GameController : MonoBehaviour
     {
         //AMbil di lokasi index paling awal, karena speedbarnya paling tinggi, kalo misal udh >=100
         //Maka ia akan jalan, kalo speedbar allChar[0] sama allChar[1] dst itu sama gatau dah ngurutinnya hehe
-        /*if (allChar[0].speedBar >= 100)
+        if (allChar[0].speed.speedBar >= 100)
         {
 
             //Ganti BattleState ke TEAM berapa
             charTurn = allChar[0];
 
-            if (teams1.Contains<Character.Base>(charTurn))
+            if (teams1.Contains(charTurn))
             {
                 battleState = BattleState.TEAM1;
             }
-            else if (teams2.Contains<Character.Base>(charTurn))
+            else if (teams2.Contains(charTurn))
             {
                 battleState = BattleState.TEAM2;
             }
-            
-            charTurn.YourTurn();
-            uiController.SetSkillButtons(charTurn.skill);
-        }*/
+
+            charTurn.speed.YourTurn();
+            uiController.SetSkillButtons(charTurn.skill.skills);
+        }
     }
 
     public void ActivateSkill(Skill skill, Character.Base target)
@@ -138,7 +138,6 @@ public class GameController : MonoBehaviour
                 ally = teams2;
                 enemy = teams1;
             }
-        print("game controller");
         skill.ActivateSkill(userPos, targetPos, ally, enemy);
         NextTurn();
     }
@@ -146,7 +145,7 @@ public class GameController : MonoBehaviour
     public void NextTurn()
     {
 
-        charTurn.NextTurn();
+        charTurn.speed.NextTurn();
         charTurn = null;
         uiController.NextTurn();
         gameWatcher.NextTurn();

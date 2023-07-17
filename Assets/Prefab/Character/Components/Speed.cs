@@ -6,6 +6,16 @@ namespace Character
 {
     public class Speed : MonoBehaviour
     {
+        //BATTLE STATE FOR CHARACTER
+        public enum BattleState
+        {
+            IDLE,
+            TURN
+        }
+        
+        //Value untuk menyimpan state pada character => IDLE or Turn
+        public BattleState battleState;
+
         //Speed prop
         public float speed; //Initial / base speed from character
         private float curSpeed; //Dynamic stat of defence
@@ -36,6 +46,13 @@ namespace Character
         {
             speedBar = 0;
             speedBarObj.UpdateVal(speedBar);
+            battleState = BattleState.IDLE;
+        }
+
+        //Ganti Battle State Character
+        public void YourTurn()
+        {
+            battleState = BattleState.TURN;
         }
     }
 

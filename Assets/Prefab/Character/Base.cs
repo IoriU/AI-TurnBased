@@ -11,22 +11,14 @@ namespace Character
 {
     public class Base : MonoBehaviour
     {
-        //BATTLE STATE FOR CHARACTER
-        public enum BattleState
-        {
-            IDLE,
-            TURN
-        }
-
-        //Value untuk menyimpan state pada character => IDLE or Turn
-        public BattleState battleState;
+        
 
         //NAMING CHARACTER, EX: Fencer, archer, bard, or manymnay moar
         public string name;
         public int pos;
-        private Health health;
-        private Speed speed;
-        private Skill skill;
+        public Health health;
+        public Speed speed;
+        public Skill skill;
 
 
         //Setup/Init Character
@@ -36,33 +28,11 @@ namespace Character
             health = GetComponent<Health>();
             speed = GetComponent<Speed>();
             skill = GetComponent<Skill>();
-
         }
 
-        void Update()
-        {
-            //BATTLESTATE check
-            if (battleState == BattleState.TURN)
-            {
-                //Masih Testing kah
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    GameController.instance.battleState = GameController.BattleState.LOOP;
-                }
-            }
-        }
+        
 
-        //Ganti Battle State Character
-        public void YourTurn()
-        {
-            battleState = BattleState.TURN;
-        }
 
-        public void NextTurn()
-        {
-            speed.NextTurn();
-            battleState = BattleState.IDLE;
-        }
 
         
 

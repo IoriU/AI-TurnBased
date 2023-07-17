@@ -9,6 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2040079504981496569}
+  - component: {fileID: 2196423711278381494}
+  - component: {fileID: 6053360055297815226}
+  - component: {fileID: 1548973011455003503}
+  - component: {fileID: 8354666913699424225}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -39,6 +43,72 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2196423711278381494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3767065949991102383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4a17f51da5ce5644ac60abbbef0243c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 
+  pos: 0
+  health: {fileID: 6053360055297815226}
+  speed: {fileID: 8354666913699424225}
+  skill: {fileID: 1548973011455003503}
+--- !u!114 &6053360055297815226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3767065949991102383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8ce9cf8abe088341b865cd738613b2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 0
+  hpBar: {fileID: 1310817323025673815}
+  def: 0
+--- !u!114 &1548973011455003503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3767065949991102383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1c29ddef0e7ac14f9f3692d6e09557e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atk: 0
+  skills: []
+  skillsRoot: {fileID: 6814704931013365816}
+  critChance: 0.15
+  critDamage: 1.5
+--- !u!114 &8354666913699424225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3767065949991102383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27269842fe763b6418e9f575331fed84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  battleState: 0
+  speed: 0
+  speedBar: 0
+  speedBarObj: {fileID: 4518905042514336694}
+  barRatio: 20
 --- !u!1 &4335342215345191129
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,6 +466,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 820c5d98a9ac5624780f207c7b1ca477, type: 3}
+--- !u!114 &1310817323025673815 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1252943386604374037, guid: 820c5d98a9ac5624780f207c7b1ca477, type: 3}
+  m_PrefabInstance: {fileID: 239724553686033986}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44144b4b11204c74aa2001e03673a55b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &8388447411582910957 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8591298313810405295, guid: 820c5d98a9ac5624780f207c7b1ca477, type: 3}
@@ -522,6 +603,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 820c5d98a9ac5624780f207c7b1ca477, type: 3}
+--- !u!114 &4518905042514336694 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1252943386604374037, guid: 820c5d98a9ac5624780f207c7b1ca477, type: 3}
+  m_PrefabInstance: {fileID: 3446724236628153251}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44144b4b11204c74aa2001e03673a55b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &6408434402390946828 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8591298313810405295, guid: 820c5d98a9ac5624780f207c7b1ca477, type: 3}

@@ -1,8 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.ConstrainedExecution;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
+using static UnityEditor.PlayerSettings;
 using Random = UnityEngine.Random;
 
 
@@ -12,7 +15,7 @@ public class Skill : MonoBehaviour
     public string name;
 
     //Stat for skill cooldown
-    public Character.Base skillOwner;
+    public Character.Skill skillOwner;
     public int skillPos;
 
     public int cd;
@@ -30,17 +33,20 @@ public class Skill : MonoBehaviour
     // Give character and position of skill
 
     // sama kaya start manual
-    public void SetSkillOwner(Character.Base chr, int pos)
+
+    private void Start()
     {
         curCd = 0;
         curUse = 0;
+        if (nextEvo == null)
+        {
+            curCd = cd;
+        }
+    }
+    public void SetSkillOwner(Character.Skill chr, int pos)
+    {
         skillOwner = chr;
         skillPos = pos;
-        if (nextEvo)
-        {
-            nextEvo.SetSkillOwner(chr, pos);
-        }
-        Debug.Log("selesai set owner");
 
     }
 
@@ -50,18 +56,14 @@ public class Skill : MonoBehaviour
     {
         curCd = cd;
         curUse++;
-        if (useToEvo > 0 && curUse == useToEvo)
+        if (nextEvo && curUse == useToEvo)
         {
             print("harusnya evo");
-            /*ally[selfPos].skill[skillPos] = nextEvo;*/
-            //skillOwner.skill[skillPos] = nextEvo; // skill evolusi
+            skillOwner.Evolution(nextEvo, skillPos);
         }
     }
 
-    public float GachaDamage(float damage)
-    {
-        return Random.Range(damage * 0.85f, damage * 1.15f);
-    }
+    
 
     public virtual void UniqueSkill(int selfPos, int targetPos, Character.Base[] ally, Character.Base[] enemy)
     {

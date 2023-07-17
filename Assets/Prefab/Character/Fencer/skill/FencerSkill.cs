@@ -21,11 +21,11 @@ public class FencerSkill : Skill
         if (target == targetPos)
         {
             target++;
-            /*for (int i = 0; i < target; i++)
+            for (int i = 0; i < target; i++)
             {
-                skillOwner.skill[0].UniqueSkill(0, targetPos, ally, enemy);
+                skillOwner.skills[0].UniqueSkill(0, targetPos, ally, enemy);
                 print("follow up " + i);
-            }*/
+            }
         }
         else
         {
