@@ -25,15 +25,15 @@ public class GameController : MonoBehaviour
 
     //Var for storing list of character in Team 1
     public GameObject team1Root;
-    public Character[] teams1;
+    public Character.Base[] teams1;
     //Var for storing list of character in Team 2
     public GameObject team2Root;
-    public Character[] teams2;
+    public Character.Base[] teams2;
     //Char in Team1 and Team2 digabung
-    public Character[] allChar;
+    public Character.Base[] allChar;
     //Current Battle State from ENUM
     public BattleState battleState;
-    public Character charTurn;
+    public Character.Base charTurn;
 
     //For UI Purpose
     public UiController uiController;
@@ -41,8 +41,8 @@ public class GameController : MonoBehaviour
     void Start()
     {
         //Masukin masing masing char ke dalam tim dari child
-        teams1 = team1Root.GetComponentsInChildren<Character>();
-        teams2 = team2Root.GetComponentsInChildren<Character>();
+        teams1 = team1Root.GetComponentsInChildren<Character.Base>();
+        teams2 = team2Root.GetComponentsInChildren<Character.Base>();
         allChar = teams1.Concat(teams2).ToArray();
         
         //Abis setup Tim, langsung masuk ke dalem state LOOP
@@ -86,14 +86,14 @@ public class GameController : MonoBehaviour
     public void UpdateSpeedBar(float interval)
     {
         //Cek semua karakter
-        foreach (Character chr in allChar)
+        foreach (Character.Base chr in allChar)
         {
             //Update karakter tersebut
-            chr.UpdateSpeedBar(interval);
+            /*chr.UpdateSpeedBar(interval);*/
         }
 
         //Setelah update speedBar, maka urutkan semua karakter yang memiliki speed paling tinggi
-        allChar = allChar.OrderByDescending(x => x.speedBar).ToArray();
+        /*allChar = allChar.OrderByDescending(x => x.speedBar).ToArray();*/
     }
 
     //Cek karakter di tim mana yang punya speed paling besar
@@ -101,30 +101,30 @@ public class GameController : MonoBehaviour
     {
         //AMbil di lokasi index paling awal, karena speedbarnya paling tinggi, kalo misal udh >=100
         //Maka ia akan jalan, kalo speedbar allChar[0] sama allChar[1] dst itu sama gatau dah ngurutinnya hehe
-        if (allChar[0].speedBar >= 100)
+        /*if (allChar[0].speedBar >= 100)
         {
 
             //Ganti BattleState ke TEAM berapa
             charTurn = allChar[0];
 
-            if (teams1.Contains<Character>(charTurn))
+            if (teams1.Contains<Character.Base>(charTurn))
             {
                 battleState = BattleState.TEAM1;
             }
-            else if (teams2.Contains<Character>(charTurn))
+            else if (teams2.Contains<Character.Base>(charTurn))
             {
                 battleState = BattleState.TEAM2;
             }
             
             charTurn.YourTurn();
             uiController.SetSkillButtons(charTurn.skill);
-        }
+        }*/
     }
 
-    public void ActivateSkill(Skill skill, Character target)
+    public void ActivateSkill(Skill skill, Character.Base target)
     {
         int userPos = -1, targetPos = -1;
-        Character[] ally = null, enemy = null;
+        Character.Base[] ally = null, enemy = null;
         if (battleState == BattleState.TEAM1)
         {
             userPos = Array.IndexOf(teams1, charTurn);

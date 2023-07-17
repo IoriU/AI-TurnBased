@@ -2,8 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fencer : Character
+namespace Character
 {
-    // Start is called before the first frame update
-    private string className = "Fencer";
+    public class Fencer : Base
+    {
+        // Start is called before the first frame update
+        private string className = "Fencer";
+    }
+
 }

@@ -2,7 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pyromancer : Character
+namespace Character
 {
+    public class Pyromancer : Base
+    {
+
+    }
 
 }

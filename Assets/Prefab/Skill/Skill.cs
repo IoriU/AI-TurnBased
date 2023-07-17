@@ -3,14 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
+
 
 public class Skill : MonoBehaviour
 {
     //NAMING SKIL, EX: Thrust, Arrow Rain, Heal, or manymnay moar
     public string name;
 
-//Stat for skill cooldown
-    public Character skillOwner;
+    //Stat for skill cooldown
+    public Character.Base skillOwner;
     public int skillPos;
 
     public int cd;
@@ -28,7 +30,7 @@ public class Skill : MonoBehaviour
     // Give character and position of skill
 
     // sama kaya start manual
-    public void SetSkillOwner(Character chr, int pos)
+    public void SetSkillOwner(Character.Base chr, int pos)
     {
         curCd = 0;
         curUse = 0;
@@ -39,11 +41,11 @@ public class Skill : MonoBehaviour
             nextEvo.SetSkillOwner(chr, pos);
         }
         Debug.Log("selesai set owner");
-        
+
     }
-    
-//Jalankan skill
-    public virtual void ActivateSkill(int selfPos, int targetPos, Character[] ally, Character[] enemy)
+
+    //Jalankan skill
+    public virtual void ActivateSkill(int selfPos, int targetPos, Character.Base[] ally, Character.Base[] enemy)
 
     {
         curCd = cd;
@@ -51,17 +53,22 @@ public class Skill : MonoBehaviour
         if (useToEvo > 0 && curUse == useToEvo)
         {
             print("harusnya evo");
-            ally[selfPos].skill[skillPos] = nextEvo;
+            /*ally[selfPos].skill[skillPos] = nextEvo;*/
             //skillOwner.skill[skillPos] = nextEvo; // skill evolusi
         }
     }
 
-    public virtual void UniqueSkill(int selfPos, int targetPos, Character[] ally, Character[] enemy)
-    { 
+    public float GachaDamage(float damage)
+    {
+        return Random.Range(damage * 0.85f, damage * 1.15f);
+    }
+
+    public virtual void UniqueSkill(int selfPos, int targetPos, Character.Base[] ally, Character.Base[] enemy)
+    {
         ;
     }
 
-    public virtual Character[] GetTargetSelection(Character[] teams)
+    public virtual Character.Base[] GetTargetSelection(Character.Base[] teams)
     {
         return teams;
     }
@@ -75,4 +82,3 @@ public class Skill : MonoBehaviour
 
 
 }
-
