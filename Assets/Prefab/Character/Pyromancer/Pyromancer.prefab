@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1548973011455003503, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
+      propertyPath: atk
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 2040079504981496569, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -112,6 +116,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pyromancer
       objectReference: {fileID: 0}
+    - target: {fileID: 6053360055297815226, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
+      propertyPath: hp
+      value: 800
+      objectReference: {fileID: 0}
     - target: {fileID: 7954160877006641839, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -134,9 +142,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3767065949991102383, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2856764361332422223}
-    - targetCorrespondingSourceObject: {fileID: 3767065949991102383, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 4649240593813953964}
   m_SourcePrefab: {fileID: 100100000, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
 --- !u!1 &408206506945160590 stripped
@@ -144,29 +149,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3767065949991102383, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
   m_PrefabInstance: {fileID: 3597658267536867873}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2856764361332422223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 408206506945160590}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6da6cc594fcdaf640aa1cbd3c30ad4e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: Pyromancer
-  hp: 800
-  hpBar: {fileID: 2584369418324143222}
-  atk: 0
-  def: 80
-  speed: 20
-  speedBar: 20
-  speedBarObj: {fileID: 1106499108912339351}
-  barRatio: 20
-  battleState: 0
-  skill: []
 --- !u!61 &4649240593813953964
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -212,25 +194,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1106499108912339351 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4518905042514336694, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
-  m_PrefabInstance: {fileID: 3597658267536867873}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44144b4b11204c74aa2001e03673a55b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2584369418324143222 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1310817323025673815, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
-  m_PrefabInstance: {fileID: 3597658267536867873}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44144b4b11204c74aa2001e03673a55b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

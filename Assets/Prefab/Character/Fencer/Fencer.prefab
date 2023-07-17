@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 142588386774030487, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
       propertyPath: m_PresetInfoIsWorld
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1094945780051370967, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
       propertyPath: m_AnchorMax.x
@@ -20,6 +20,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1548973011455003503, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
+      propertyPath: atk
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1548973011455003503, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
+      propertyPath: skills.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1548973011455003503, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
+      propertyPath: skills.Array.data[0]
+      value: 
+      objectReference: {fileID: 8850085127974093668, guid: bac19dd3894366c44851edd4983e7677, type: 3}
     - target: {fileID: 2040079504981496569, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -148,69 +160,24 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6053360055297815226, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
+      propertyPath: hp
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6053360055297815226, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
+      propertyPath: def
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 7954160877006641839, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
       propertyPath: m_SortingLayer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8354666913699424225, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
+      propertyPath: speed
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3767065949991102383, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3497362036632524923}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
---- !u!114 &1254633506243752341 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4518905042514336694, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
-  m_PrefabInstance: {fileID: 3449540398957980195}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44144b4b11204c74aa2001e03673a55b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &1988466996610567564 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3767065949991102383, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
-  m_PrefabInstance: {fileID: 3449540398957980195}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3497362036632524923
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1988466996610567564}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4562cf00f01c054f8a14ca48b843e52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: 
-  hp: 1000
-  hpBar: {fileID: 4463014309988942964}
-  atk: 20
-  def: 100
-  speed: 100
-  speedBar: 0
-  speedBarObj: {fileID: 1254633506243752341}
-  barRatio: 20
-  battleState: 0
-  skill:
-  - {fileID: 8850085127974093668, guid: bac19dd3894366c44851edd4983e7677, type: 3}
-  - {fileID: -4344078606574052098, guid: f40be28e36124f744bab8a86d5f448d9, type: 3}
-  - {fileID: 5463206437115158878, guid: 3879d85e534035a46b59e1bd22b7590a, type: 3}
-  - {fileID: -4549592766244692992, guid: 5831edb7260b093408c4925413aa29b8, type: 3}
---- !u!114 &4463014309988942964 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1310817323025673815, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
-  m_PrefabInstance: {fileID: 3449540398957980195}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44144b4b11204c74aa2001e03673a55b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

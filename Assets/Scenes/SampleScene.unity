@@ -188,7 +188,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2856764361332422223, guid: 20a476abe648d5a4b9bd262fe97d0e42, type: 3}
       propertyPath: speed
-      value: 0
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2856764361332422223, guid: 20a476abe648d5a4b9bd262fe97d0e42, type: 3}
       propertyPath: speedBar
@@ -938,7 +938,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2856764361332422223, guid: 20a476abe648d5a4b9bd262fe97d0e42, type: 3}
       propertyPath: speed
-      value: 0
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2856764361332422223, guid: 20a476abe648d5a4b9bd262fe97d0e42, type: 3}
       propertyPath: speedBar
@@ -1976,7 +1976,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2856764361332422223, guid: 20a476abe648d5a4b9bd262fe97d0e42, type: 3}
       propertyPath: speed
-      value: 0
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2856764361332422223, guid: 20a476abe648d5a4b9bd262fe97d0e42, type: 3}
       propertyPath: speedBar
@@ -2154,24 +2154,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3497362036632524923, guid: 50e01b1ca3d1b5e4abc628936da18a75, type: 3}
       propertyPath: speed
-      value: 10
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3497362036632524923, guid: 50e01b1ca3d1b5e4abc628936da18a75, type: 3}
       propertyPath: barRatio
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3497362036632524923, guid: 50e01b1ca3d1b5e4abc628936da18a75, type: 3}
-      propertyPath: effects.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3497362036632524923, guid: 50e01b1ca3d1b5e4abc628936da18a75, type: 3}
       propertyPath: skill.Array.data[0]
       value: 
       objectReference: {fileID: 8850085127974093668, guid: bac19dd3894366c44851edd4983e7677, type: 3}
-    - target: {fileID: 3497362036632524923, guid: 50e01b1ca3d1b5e4abc628936da18a75, type: 3}
-      propertyPath: effects.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: e4e2d68391ae9194c872027656ac2b3f, type: 2}
     - target: {fileID: 3715728315542534362, guid: 50e01b1ca3d1b5e4abc628936da18a75, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2238,11 +2230,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3715728315542534362, guid: 50e01b1ca3d1b5e4abc628936da18a75, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -6.77
+      value: -7.12
       objectReference: {fileID: 0}
     - target: {fileID: 3715728315542534362, guid: 50e01b1ca3d1b5e4abc628936da18a75, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1.02
+      value: -1.97
       objectReference: {fileID: 0}
     - target: {fileID: 3715728315542534362, guid: 50e01b1ca3d1b5e4abc628936da18a75, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2343,7 +2335,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2856764361332422223, guid: 20a476abe648d5a4b9bd262fe97d0e42, type: 3}
       propertyPath: speed
-      value: 0
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2856764361332422223, guid: 20a476abe648d5a4b9bd262fe97d0e42, type: 3}
       propertyPath: speedBar

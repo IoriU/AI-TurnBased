@@ -1,8 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.ConstrainedExecution;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
+using static UnityEditor.PlayerSettings;
+using Random = UnityEngine.Random;
+
 
 public class Skill : MonoBehaviour
 {
@@ -10,7 +15,7 @@ public class Skill : MonoBehaviour
     public string name;
 
     //Stat for skill cooldown
-    public Character skillOwner;
+    public Character.Skill skillOwner;
     public int skillPos;
 
     public int cd;
@@ -25,50 +30,47 @@ public class Skill : MonoBehaviour
     //Ini gatau apa njirr
     public StatHelper[] helper;
 
-    //Add Status Effect
-    public StatusEffect status;
-
     // Give character and position of skill
 
-
-
     // sama kaya start manual
-    public void SetSkillOwner(Character chr, int pos)
+
+    private void Start()
     {
         curCd = 0;
         curUse = 0;
+        if (nextEvo == null)
+        {
+            curCd = cd;
+        }
+    }
+    public void SetSkillOwner(Character.Skill chr, int pos)
+    {
         skillOwner = chr;
         skillPos = pos;
-        if (nextEvo)
-        {
-            nextEvo.SetSkillOwner(chr, pos);
-        }
-        Debug.Log("selesai set owner");
-        
+
     }
-    
+
     //Jalankan skill
-    public virtual void ActivateSkill(int selfPos, int targetPos, Character[] ally, Character[] enemy)
+    public virtual void ActivateSkill(int selfPos, int targetPos, Character.Base[] ally, Character.Base[] enemy)
 
     {
-        //Set and adding exp for skill to evo
         curCd = cd;
         curUse++;
-        //Statement for checking skill ready for evo or not
-        if (useToEvo > 0 && curUse == useToEvo)
+        if (nextEvo && curUse == useToEvo)
         {
-            //print("harusnya evo");
-            ally[selfPos].skill[skillPos] = nextEvo;
-            //skillOwner.skill[skillPos] = nextEvo; // skill evolusi
+            print("harusnya evo");
+            skillOwner.Evolution(nextEvo, skillPos);
         }
     }
 
-    public virtual void UniqueSkill(int selfPos, int targetPos, Character[] ally, Character[] enemy)
-    { 
+    
+
+    public virtual void UniqueSkill(int selfPos, int targetPos, Character.Base[] ally, Character.Base[] enemy)
+    {
         ;
     }
 
-    public virtual Character[] GetTargetSelection(Character[] teams)
+    public virtual Character.Base[] GetTargetSelection(Character.Base[] teams)
     {
         return teams;
     }
@@ -82,4 +84,3 @@ public class Skill : MonoBehaviour
 
 
 }
-

@@ -11,9 +11,9 @@ public class GameWatcher : MonoBehaviour
     //Skill yang sedang digunakan di turn ini
     public Skill skill;
     //Target character(s) serangan dari skill yang sedang digunakan 
-    public Character target;
+    public Character.Base target;
     //Daftar target yang bisa diserang, buat sekarang tandanya masih warna putih
-    public Character[] selectableTarget;
+    public Character.Base[] selectableTarget;
     //button njirrr
     public Button[] team1;
     public Button[] team2;
@@ -61,11 +61,11 @@ public class GameWatcher : MonoBehaviour
     public void SetTarget()
     {
         //Refresh Selected Target COlor
-        foreach (Character chr in gameController.teams2)
+        foreach (Character.Base chr in gameController.teams2)
         {
             chr.GetComponentInChildren<SpriteRenderer>().color = Color.red;
         }
-        foreach (Character chr in gameController.teams1)
+        foreach (Character.Base chr in gameController.teams1)
         {
             chr.GetComponentInChildren<SpriteRenderer>().color = Color.white;
         }
@@ -79,11 +79,11 @@ public class GameWatcher : MonoBehaviour
             selectableTarget = skill.GetTargetSelection(gameController.teams2);
         } else
         {
-            selectableTarget = new Character[1];
+            selectableTarget = new Character.Base[1];
             selectableTarget[0] = gameController.charTurn;
         }
 
-        foreach (Character chr in selectableTarget)
+        foreach (Character.Base chr in selectableTarget)
         {
             chr.GetComponentInChildren<SpriteRenderer>().color = Color.green;
         }
@@ -102,14 +102,14 @@ public class GameWatcher : MonoBehaviour
 
             //Misal posisi mouse yang diklik terdapat collider dan Tag dari object yang terkena raycast
             //Dan Tag nya bernilai benar
-            if (hit.collider != null && selectableTarget.Contains(hit.collider.gameObject.GetComponent<Character>()))
+            if (hit.collider != null && selectableTarget.Contains(hit.collider.gameObject.GetComponent<Character.Base>()))
             {
                 //Masukin ke dalam character target
-                target = hit.collider.gameObject.GetComponent<Character>();
+                target = hit.collider.gameObject.GetComponent<Character.Base>();
 
                 
                 //Ganti Warna Musuh Ke semula
-                foreach (Character chr in selectableTarget)
+                foreach (Character.Base chr in selectableTarget)
                 {
                     chr.GetComponentInChildren<SpriteRenderer>().color = Color.red;
                 }
