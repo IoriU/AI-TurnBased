@@ -75,6 +75,8 @@ public class GameController : MonoBehaviour
         //MAIN GAME LOOP HERE
         if (battleState == BattleState.LOOP)
         {
+            
+
             //Update Speed Bar di semua karakter
             UpdateSpeedBar(Time.deltaTime);
             
@@ -144,6 +146,12 @@ public class GameController : MonoBehaviour
 
     public void NextTurn()
     {
+        //Handling Status Effect
+        if(charTurn.seManager.effects.Count > 0)
+        {
+            charTurn.seManager.HandleEffectTimer();
+        }
+        
 
         charTurn.speed.NextTurn();
         charTurn = null;

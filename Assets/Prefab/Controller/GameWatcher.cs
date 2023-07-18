@@ -30,11 +30,15 @@ public class GameWatcher : MonoBehaviour
         if (!gameController.isCpu1 && (gameController.battleState == GameController.BattleState.TEAM1) && !isRun)
         {
             
+
             // show UI or some shit  
             if (skill != null)
             {
                 //SELECTING TARGET USING RAYCAST
                 SetTarget();
+
+                
+
 
                 // color chance
                 if (target != null)

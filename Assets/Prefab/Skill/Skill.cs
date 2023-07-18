@@ -32,7 +32,7 @@ public class Skill : MonoBehaviour
 
     // Give character and position of skill
 
-    // sama kaya start manual
+    // sama kaya start manualz
 
     private void Start()
     {
@@ -58,7 +58,7 @@ public class Skill : MonoBehaviour
         curUse++;
         if (nextEvo && curUse == useToEvo)
         {
-            print("harusnya evo");
+            //print("harusnya evo");
             skillOwner.Evolution(nextEvo, skillPos);
         }
     }

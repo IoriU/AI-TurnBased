@@ -1,30 +1,39 @@
+using Character;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
-[CreateAssetMenu(menuName ="Status Effect")]
-public class StatusEffect : MonoBehaviour
+
+public enum StatusEffectType
 {
-    public int atk = 0;
-    public int def = 0;
-    public int dot = 0;
-    public int speed = 0;
-    public int speedBar = 0;
-    public int critRate = 0;
-    public int dodge = 0;
+    None,
+    Poison,
+    Burn,
+    Freeze,
+    AtkUp,
+    DefUp,
+    Heal,
+}
 
-    public int duration = 3;
-    public int currentDuration = 0;
+public class StatusEffect 
+{
+    public StatusEffectType type;
+    public int duration;
+    public int intensity;
 
-    //Status Aneh ANeh
-    public bool isStun = false;
 
-    public void Destroy()
+    public StatusEffect(StatusEffectType type, int duration, int intensity)
     {
-        Destroy(this);
+        this.type = type;
+        this.duration = duration;
+        this.intensity = intensity;
     }
-    public void ResetValues()
-    {
-        currentDuration = 0;
-    }
+
+    //Create abstract function to apply effect
+    public virtual void ApplyEffect(Character.Base chara)
+    { }
+    public virtual void RemoveEffect(Character.Base chara)
+    { }
+    public virtual void HandleEffectPerTurn(Character.Base chara) { }
 }

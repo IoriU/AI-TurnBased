@@ -43,18 +43,18 @@ namespace Character {
 
         public float GachaDamage(float damage)
         {
-            Debug.Log("start gacha damage");
+            //Debug.Log("start gacha damage");
             return Random.Range(damage * 0.85f, damage * 1.15f);
         }
 
         public float GachaCrit(float damage)
         {
-            Debug.Log("start gacha crit");
+            //Debug.Log("start gacha crit");
             if (Random.Range(0f, 1f) < critChance)
             {
                 return damage * critDamage;
             }
-            Debug.Log("finish gacha damage");
+            //Debug.Log("finish gacha damage");
             return damage;
         }
 
@@ -62,7 +62,7 @@ namespace Character {
         {
             float damage = baseAtk + ratioAtk * curAtk;
             damage = GachaDamage(damage);
-            Debug.Log("finish gacha damage");
+            //Debug.Log("finish gacha damage");
             return GachaCrit(damage);
 
         }

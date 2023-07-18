@@ -48,10 +48,10 @@ MonoBehaviour:
   skillOwner: {fileID: 0}
   skillPos: 0
   cd: 0
-  useToEvo: 3
+  useToEvo: 1
   curUse: 0
   nextEvo: {fileID: -7042005000521490121, guid: 1eba45d5e0cc58b4bb9e1f288dd455cb, type: 3}
-  targetTeam: 2
+  targetTeam: 1
   helper:
   - baseValue: 200
     statRatio: 1

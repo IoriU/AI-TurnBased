@@ -8,11 +8,15 @@ public class Thrust : FencerSkill
 {
     public override void ActivateSkill(int selfPos, int targetPos, Character.Base[] ally, Character.Base[] enemy)
     {
-        print(skillOwner);
-        print(ally[selfPos]);
+        //print(skillOwner);
+        //print(ally[selfPos]);
         float damage = skillOwner.CalculateDamage(helper[0].baseValue, helper[0].statRatio);
-        Debug.Log("berhasil calculate");
+        //Debug.Log("berhasil calculate");
         enemy[targetPos].health.TakeDamage(damage);
+
+        //Create Status Effect Poison
+        enemy[targetPos].seManager.ApplyStatusEffect(new Poison(StatusEffectType.Poison,3, 10));
+
         base.ActivateSkill(selfPos, targetPos, ally, enemy);
     }
 

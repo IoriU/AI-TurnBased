@@ -10,9 +10,7 @@ using UnityEngine.UI;
 namespace Character
 {
     public class Base : MonoBehaviour
-    {
-        
-
+    {      
         //NAMING CHARACTER, EX: Fencer, archer, bard, or manymnay moar
         public string name;
         public int pos;
@@ -20,6 +18,8 @@ namespace Character
         public Speed speed;
         public Skill skill;
 
+        //Status Effect Manager
+        public StatusEffectManager seManager;
 
         //Setup/Init Character
         void Start()
@@ -28,24 +28,12 @@ namespace Character
             health = GetComponent<Health>();
             speed = GetComponent<Speed>();
             skill = GetComponent<Skill>();
+
+            seManager = FindObjectOfType<StatusEffectManager>();
         }
 
-        
 
 
-
-        
-
-
-        public void AddStatus(float val)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void RemoveStatus(float val)
-        {
-            throw new System.NotImplementedException();
-        }
     }
 
 }

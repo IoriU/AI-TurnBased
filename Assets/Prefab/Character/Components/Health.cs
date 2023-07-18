@@ -13,7 +13,7 @@ namespace Character
 
         //Defence prop.
         public float def; //Initial / base defence from character
-        private float curDef; //Dynamic stat of defence
+        public float curDef; //Dynamic stat of defence
 
         // Start is called before the first frame update
         void Start()
@@ -31,7 +31,7 @@ namespace Character
         public void TakeDamage(float val, float defRatio)
         {
             float damage = val - defRatio * curDef;
-            Debug.Log(string.Format("{0} take {1} damages.", name, damage));
+            //Debug.Log(string.Format("{0} take {1} damages.", name, damage));
             curHp -= damage;
 
             hpBar.UpdateVal(curHp);
