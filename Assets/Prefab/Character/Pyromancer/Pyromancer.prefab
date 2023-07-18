@@ -104,6 +104,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2196423711278381494, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
+      propertyPath: name
+      value: Diluc
+      objectReference: {fileID: 0}
     - target: {fileID: 2572842065424553526, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -119,6 +123,10 @@ PrefabInstance:
     - target: {fileID: 6053360055297815226, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
       propertyPath: hp
       value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 6053360055297815226, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
+      propertyPath: def
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7954160877006641839, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
       propertyPath: m_Color.b
