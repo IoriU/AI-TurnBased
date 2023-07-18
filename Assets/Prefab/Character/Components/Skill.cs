@@ -9,7 +9,8 @@ namespace Character {
     {
         //Attack prop.
         public float atk; //Initial / base attack from character
-        private float curAtk; //Dynamic stat of attack
+        [HideInInspector]
+        public float curAtk; //Dynamic stat of attack
         //List skill yang dimiliki oleh character
         public global::Skill[] skills;
         public Transform skillsRoot;

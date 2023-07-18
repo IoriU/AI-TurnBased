@@ -13,6 +13,7 @@ namespace Character
 
         //Defence prop.
         public float def; //Initial / base defence from character
+        [HideInInspector]
         public float curDef; //Dynamic stat of defence
 
         // Start is called before the first frame update

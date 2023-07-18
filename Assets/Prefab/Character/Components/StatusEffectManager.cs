@@ -17,7 +17,7 @@ namespace Character
         //List<StatusEffect.Base> removeEffects = new List<StatusEffect.Base>();
         public void ApplyStatusEffect(StatusEffect.Base effect)
         {
-            // Gacha check
+           // Gacha check
             if (Random.Range(0f, 1f) < effect.chance)
             {
                 

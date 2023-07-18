@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,7 +19,11 @@ namespace Character
 
         //Speed prop
         public float speed; //Initial / base speed from character
-        private float curSpeed; //Dynamic stat of defence
+
+        //Create a variable that cannot show in inspector but public
+
+        [HideInInspector]
+        public float curSpeed; //Dynamic stat of defence
                                 //Bagian dari prop speed yang nentuin dia bakal jalan di turn tersebut atau tidak,
                                 //Ex, bila speedBar lebih dari 100, maka chara tersebut akan jalan.
         

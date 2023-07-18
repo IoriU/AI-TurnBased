@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Arrow Rain
   skillOwner: {fileID: 0}
-  skillPos: 0
+  skillPos: 2
   cd: 0
   useToEvo: -1
   curUse: 0
