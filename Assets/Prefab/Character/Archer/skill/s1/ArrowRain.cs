@@ -15,7 +15,7 @@ public class ArrowRain : ArcherSkill
         enemy[targetPos].health.TakeDamage(damage);
 
         //Create Status Effect Poison
-        enemy[targetPos].seManager.ApplyStatusEffect(new Poison(StatusEffectType.Poison,3, 10));
+        enemy[targetPos].seManager.ApplyStatusEffect(new StatusEffect.Poison("Poison",3, 0.1f, 0.5f));
         Debug.Log("SE Manager punya:" + enemy[targetPos].seManager.name);
         Debug.Log("Targetingnya ke: " + enemy[targetPos].name);
         base.ActivateSkill(selfPos, targetPos, ally, enemy);

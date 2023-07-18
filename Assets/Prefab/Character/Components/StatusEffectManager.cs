@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Random = UnityEngine.Random;  
@@ -12,12 +13,12 @@ namespace Character
     {
         //public Dictionary<StatusEffect.BaseType, int> effectTimers = new Dictionary<StatusEffect.BaseType, int>();
         
-        /*public List<StatusEffect.Base> effects = new List<StatusEffect.Base>();*/
         public Dictionary<string, StatusEffect.Base> effects = new Dictionary<string, StatusEffect.Base>();
-        //List<StatusEffect.Base> removeEffects = new List<StatusEffect.Base>();
+
+        public Transform root;
         public void ApplyStatusEffect(StatusEffect.Base effect)
         {
-            // Gacha check
+           // Gacha check
             if (Random.Range(0f, 1f) < effect.chance)
             {
                 
@@ -37,7 +38,6 @@ namespace Character
             }
             
         }
-
         
 
         public void RemoveEffect(StatusEffect.Base status)
@@ -56,7 +56,6 @@ namespace Character
                 if (eff.duration <= 0)
                 {
                     RemoveEffect(eff);
-                    break;
                 } else
                 {
                     //Kurangi durasi effect

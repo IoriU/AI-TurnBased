@@ -6,6 +6,7 @@ using System.Linq;
 using System;
 using static UnityEngine.EventSystems.EventTrigger;
 using JetBrains.Annotations;
+using Character;
 
 public class GameController : MonoBehaviour
 {
@@ -38,11 +39,27 @@ public class GameController : MonoBehaviour
     //For UI Purpose
     public UiController uiController;
     public GameWatcher gameWatcher;
+
+    public Skill dummySkill;
+    private bool flag;
     void Start()
     {
         //Masukin masing masing char ke dalam tim dari child
         teams1 = team1Root.GetComponentsInChildren<Character.Base>();
+        int count = 0;
+        foreach (Character.Base chara in teams1)
+        {
+            chara.pos = count;
+            count++;
+        }
+        
         teams2 = team2Root.GetComponentsInChildren<Character.Base>();
+        count = 0;
+        foreach (Character.Base chara in teams2)
+        {
+            chara.pos = count;
+            count++;
+        }
         allChar = teams1.Concat(teams2).ToArray();
         
         //Abis setup Tim, langsung masuk ke dalem state LOOP
@@ -83,6 +100,12 @@ public class GameController : MonoBehaviour
             //Cek karakter di tim mana yang punya speed paling besar
             TeamTurnCheck();
         }
+        else if (battleState == BattleState.TEAM2 && !flag)
+        {
+            flag = !flag;
+            ActivateSkill(dummySkill, teams1[0]);
+            flag = !flag;
+        }
     }
 
     public void UpdateSpeedBar(float interval)
@@ -121,6 +144,19 @@ public class GameController : MonoBehaviour
             charTurn.speed.YourTurn();
             uiController.SetSkillButtons(charTurn.skill.skills);
         }
+    }
+
+    public (Character.Base[], Character.Base[]) GetCurrentAllyEnemy()
+    {
+        if (battleState == BattleState.TEAM1)
+        {
+            return (teams1, teams2);
+        }
+        else if (battleState == BattleState.TEAM2)
+        {
+            return (teams2, teams1);
+        }
+        return (null, null);
     }
 
     public void ActivateSkill(Skill skill, Character.Base target)

@@ -764,6 +764,7 @@ MonoBehaviour:
   charTurn: {fileID: 0}
   uiController: {fileID: 476747709}
   gameWatcher: {fileID: 0}
+  dummySkill: {fileID: 0}
 --- !u!4 &476747707
 Transform:
   m_ObjectHideFlags: 0
@@ -2140,6 +2141,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3325250639574659764, guid: 50e01b1ca3d1b5e4abc628936da18a75, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3497362036632524923, guid: 50e01b1ca3d1b5e4abc628936da18a75, type: 3}
       propertyPath: atk
       value: 20
@@ -2271,6 +2276,14 @@ PrefabInstance:
     - target: {fileID: 6280105539192809583, guid: 50e01b1ca3d1b5e4abc628936da18a75, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6642396018463509954, guid: 50e01b1ca3d1b5e4abc628936da18a75, type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6642396018463509954, guid: 50e01b1ca3d1b5e4abc628936da18a75, type: 3}
+      propertyPath: speedBar
+      value: 99
       objectReference: {fileID: 0}
     - target: {fileID: 7652623231701152495, guid: 50e01b1ca3d1b5e4abc628936da18a75, type: 3}
       propertyPath: m_Enabled

@@ -5,22 +5,22 @@ using UnityEngine;
 
 namespace StatusEffect
 {
-    public class Poison : Base
+    public class CritDamageStatus : Base
     {
-        public Poison(string name, int duration, float intensity, float chance) : base(name, duration, intensity, chance)
+        public CritDamageStatus(string name, int duration, float intensity, float chance) : base(name, duration, intensity, chance)
         {
         }
 
         public override void ApplyEffect(Character.Base chara)
         {
             
-            Debug.Log("This chara kena poison");
-            chara.health.curDef -= intensity * chara.health.def;
+            Debug.Log("This chara kena CritRate Status");
+            chara.skill.critDamage += intensity;
         }
 
         public override void RemoveEffect(Character.Base chara)
         {
-            chara.health.curDef += intensity * chara.health.def;
+            chara.skill.critDamage -= intensity;
         }
 
         public override void HandleEffectPerTurn(Character.Base chara)
