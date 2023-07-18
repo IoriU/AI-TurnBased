@@ -1,11 +1,10 @@
-using StatusEffect;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEditor;
 using UnityEngine;
 
-public class Thrust : FencerSkill
+public class ArrowRain : ArcherSkill
 {
     public override void ActivateSkill(int selfPos, int targetPos, Character.Base[] ally, Character.Base[] enemy)
     {
@@ -16,8 +15,9 @@ public class Thrust : FencerSkill
         enemy[targetPos].health.TakeDamage(damage);
 
         //Create Status Effect Poison
-        enemy[targetPos].seManager.ApplyStatusEffect(new Poison("poison", 3, 0.1f, 1f));
-
+        enemy[targetPos].seManager.ApplyStatusEffect(new Poison(StatusEffectType.Poison,3, 10));
+        Debug.Log("SE Manager punya:" + enemy[targetPos].seManager.name);
+        Debug.Log("Targetingnya ke: " + enemy[targetPos].name);
         base.ActivateSkill(selfPos, targetPos, ally, enemy);
     }
 
