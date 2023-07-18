@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Character
 {
@@ -15,6 +16,9 @@ namespace Character
         public float def; //Initial / base defence from character
         [HideInInspector]
         public float curDef; //Dynamic stat of defence
+
+        // Subskreb
+        public UnityEvent<Base> takeDamageEvent = new UnityEvent<Base>();
 
         // Start is called before the first frame update
         void Start()
@@ -36,6 +40,7 @@ namespace Character
             curHp -= damage;
 
             hpBar.UpdateVal(curHp);
+            takeDamageEvent.Invoke(GetComponent<Base>());
         }
 
         public void Heal(float val)

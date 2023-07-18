@@ -1,26 +1,26 @@
-using Character;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace StatusEffect
 {
-    public class Poison : Base
+    public class Counter : Base
     {
-        public Poison(string name, int duration, float intensity, float chance) : base(name, duration, intensity, chance)
+        private UniqueEffect.Counter counter;
+        public Counter(string name, int duration, float intensity, float chance) : base(name, duration, intensity, chance)
         {
         }
 
         public override void ApplyEffect(Character.Base chara)
         {
-            
-            Debug.Log("This chara kena poison");
-            chara.health.curDef -= intensity * chara.health.def;
+            counter = chara.seManager.root.AddComponent<UniqueEffect.Counter>();
+            counter.SetupTrigger(chara);
         }
 
         public override void RemoveEffect(Character.Base chara)
         {
-            chara.health.curDef += intensity * chara.health.def;
+            Object.Destroy(counter);
         }
 
         public override void HandleEffectPerTurn(Character.Base chara)
@@ -29,6 +29,5 @@ namespace StatusEffect
             //health.curDef -= intensity;
         }
     }
-
-
 }
+
