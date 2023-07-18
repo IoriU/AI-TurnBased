@@ -11,8 +11,9 @@ public class Poison : StatusEffect
 
     public override void ApplyEffect(Character.Base chara)
     {
-        Debug.Log("This chara kena poison");
+        //Debug.Log("This chara kena poison");
         chara.health.curDef -= intensity;
+        //Debug.Log(chara.name);
     }
 
     public override void RemoveEffect(Character.Base chara)

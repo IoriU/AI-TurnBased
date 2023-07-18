@@ -35,7 +35,7 @@ namespace Character
                   if (eff.duration <= 0)
                 {
                     RemoveEffect(eff);
-                    //break;
+                    break;
                 } else
                 {
                     //Kurangi durasi effect

@@ -28,8 +28,7 @@ namespace Character
             health = GetComponent<Health>();
             speed = GetComponent<Speed>();
             skill = GetComponent<Skill>();
-
-            seManager = FindObjectOfType<StatusEffectManager>();
+            seManager = GetComponent<StatusEffectManager>();
         }
 
 
