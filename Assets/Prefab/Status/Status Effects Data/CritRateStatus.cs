@@ -7,7 +7,7 @@ namespace StatusEffect
 {
     public class CritRateStatus : Base
     {
-        public CritRateStatus(string name, int duration, float intensity, float chance) : base(name, duration, intensity, chance)
+        public CritRateStatus(string name, int duration, float intensity, float chance, int type) : base(name, duration, intensity, chance, type)
         {
         }
 

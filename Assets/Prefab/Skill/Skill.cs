@@ -59,7 +59,7 @@ public class Skill : MonoBehaviour
         if (nextEvo && curUse == useToEvo)
         {
             //print("harusnya evo");
-            skillOwner.Evolution(nextEvo, skillPos);
+            skillOwner.skill.Evolution(nextEvo, skillPos);
         }
     }
 

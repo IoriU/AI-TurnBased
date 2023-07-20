@@ -23,7 +23,7 @@ public class FencerSkill : Skill
             target++;
             for (int i = 0; i < target; i++)
             {
-                skillOwner.skills[0].UniqueSkill(0, targetPos, ally, enemy);
+                skillOwner.skill.skills[0].UniqueSkill(0, targetPos, ally, enemy);
                 print("follow up " + i);
             }
         }
