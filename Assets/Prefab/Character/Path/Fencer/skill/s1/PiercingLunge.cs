@@ -13,7 +13,7 @@ public class PiercingLunge : FencerSkill
 
     public override void UniqueSkill(int selfPos, int targetPos, Character.Base[] ally, Character.Base[] enemy)
     {
-        float damage = skillOwner.skill.CalculateDamage(helper[0].baseValue, helper[0].statRatio);
+        float damage = skillOwner.skill.CalculateDamage(helper[0].baseValue/3, helper[0].statRatio/3);
         enemy[targetPos].health.TakeDamage(damage, 0);
     }
 

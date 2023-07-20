@@ -2303,11 +2303,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6642396018463509954, guid: 50e01b1ca3d1b5e4abc628936da18a75, type: 3}
       propertyPath: speed
-      value: 1
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6642396018463509954, guid: 50e01b1ca3d1b5e4abc628936da18a75, type: 3}
       propertyPath: speedBar
-      value: 99
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7652623231701152495, guid: 50e01b1ca3d1b5e4abc628936da18a75, type: 3}
       propertyPath: m_Enabled

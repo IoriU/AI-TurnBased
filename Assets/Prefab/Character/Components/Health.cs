@@ -9,7 +9,7 @@ namespace Character
     {
         //Health prop.
         public float hp; //Initial / base hp from character
-        [HideInInspector]
+        //[HideInInspector]
         public float curHp; //Current hp after taking some damage or get some heal
         public ProgressBar hpBar; //For UI purpose
 
@@ -37,6 +37,10 @@ namespace Character
         public void TakeDamage(float val, float defRatio)
         {
             float damage = val - defRatio * curDef;
+            if (damage < 0)
+            {
+                damage = 0;
+            }
             //Debug.Log(string.Format("{0} take {1} damages.", name, damage));
             curHp -= damage;
 
