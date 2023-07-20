@@ -10,17 +10,22 @@ namespace StatusEffect {
 
         public string name;
         public int duration;
-        public float intensity;
+        public float baseInstensity;
+        public float ratioInstensity;
         public float chance;
         public int type;
-        public Base(string name, int duration, float intensity, float chance, int type)
+
+        //Type -1 = Debuff
+        //Type 0 = Unique
+        //Type 1 = Buff
+        public Base(string name, int duration, float baseInstensity, float ratioIntensity, float chance, int type)
         {
             this.name = name;
             this.duration = duration;
-            this.intensity = intensity;
+            this.baseInstensity = baseInstensity;
+            this.ratioInstensity = ratioIntensity;
             this.chance = chance;
             this.type = type;
-
         }
 
         //Create abstract function to apply effect

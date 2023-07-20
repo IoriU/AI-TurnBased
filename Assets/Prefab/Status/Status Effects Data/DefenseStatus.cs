@@ -7,7 +7,7 @@ namespace StatusEffect
 {
     public class DefenseStatus : Base
     {
-        public DefenseStatus(string name, int duration, float intensity, float chance, int type) : base(name, duration, intensity, chance, type)
+        public DefenseStatus(string name, int duration, float baseInstensity, float ratioIntensity, float chance, int type) : base(name, duration, baseInstensity, ratioIntensity, chance, type)
         {
         }
 
@@ -15,12 +15,12 @@ namespace StatusEffect
         {
             
             Debug.Log("This chara kena Defense Status");
-            chara.health.curDef += intensity;
+            chara.health.curDef += baseInstensity;
         }
 
         public override void RemoveEffect(Character.Base chara)
         {
-            chara.health.curDef += intensity;
+            chara.health.curDef += baseInstensity;
         }
 
         public override void HandleEffectPerTurn(Character.Base chara)
