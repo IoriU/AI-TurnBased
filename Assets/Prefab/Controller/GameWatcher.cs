@@ -38,8 +38,6 @@ public class GameWatcher : MonoBehaviour
                 SetTarget();
 
                 
-
-
                 // color chance
                 if (target != null)
                 {

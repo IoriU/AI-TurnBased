@@ -99,6 +99,13 @@ public class GameController : MonoBehaviour
             
             //Cek karakter di tim mana yang punya speed paling besar
             TeamTurnCheck();
+
+            //Handling Status Effect On Turn
+            if (charTurn != null && charTurn.seManager.effects.Count > 0)
+            {
+                charTurn.seManager.HandleEffectOnTurn();
+            }
+
         }
         else if (battleState == BattleState.TEAM2 && !flag)
         {
@@ -178,16 +185,18 @@ public class GameController : MonoBehaviour
             }
         skill.ActivateSkill(userPos, targetPos, ally, enemy);
         NextTurn();
+
+        
     }
 
+    //Main Next Turn Container
     public void NextTurn()
     {
         //Handling Status Effect
-        if(charTurn.seManager.effects.Count > 0)
+        if (charTurn.seManager.effects.Count > 0)
         {
             charTurn.seManager.HandleEffectTimer();
         }
-        
 
         charTurn.speed.NextTurn();
         charTurn = null;
