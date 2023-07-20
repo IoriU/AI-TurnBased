@@ -7,7 +7,7 @@ namespace StatusEffect
 {
     public class SpeedStatus : Base
     {
-        public SpeedStatus(string name, int duration, float intensity, float chance, int type) : base(name, duration, intensity, chance, type)
+        public SpeedStatus(string name, int duration, float baseInstensity, float ratioIntensity, float chance, int type) : base(name, duration, baseInstensity, ratioIntensity, chance, type)
         {
         }
 
@@ -15,12 +15,12 @@ namespace StatusEffect
         {
             
             Debug.Log("This chara kena Speed Status");
-            chara.speed.curSpeed += intensity;
+            chara.speed.curSpeed += baseInstensity;
         }
 
         public override void RemoveEffect(Character.Base chara)
         {
-            chara.speed.curSpeed -= intensity;
+            chara.speed.curSpeed -= baseInstensity;
         }
 
         public override void HandleEffectPerTurn(Character.Base chara)

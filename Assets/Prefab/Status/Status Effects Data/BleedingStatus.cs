@@ -7,7 +7,7 @@ namespace StatusEffect
 {
     public class BleedingStatus : Base
     {
-        public BleedingStatus(string name, int duration, float intensity, float chance, int type) : base(name, duration, intensity, chance, type)
+        public BleedingStatus(string name, int duration, float baseInstensity, float ratioIntensity, float chance, int type) : base(name, duration, baseInstensity, ratioIntensity, chance, type)
         {
         }
 
@@ -24,8 +24,8 @@ namespace StatusEffect
         public override void HandleEffectPerTurn(Character.Base chara)
         {
             //Ini Buat DoT
-            Debug.Log("Bleeding DoT on: " + chara.name + ", for " + intensity);
-            chara.health.TakeDamage(intensity, 1.0f);
+            Debug.Log("Bleeding DoT on: " + chara.name + ", for " + baseInstensity);
+            chara.health.TakeDamage(baseInstensity, 1.0f);
         }
     }
 
