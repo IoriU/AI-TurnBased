@@ -7,17 +7,19 @@ using UnityEngine.TextCore.Text;
 namespace StatusEffect {
     public class Base
     {
+
         public string name;
         public int duration;
         public float intensity;
         public float chance;
-
-        public Base(string name, int duration, float intensity, float chance)
+        public int type;
+        public Base(string name, int duration, float intensity, float chance, int type)
         {
             this.name = name;
             this.duration = duration;
             this.intensity = intensity;
             this.chance = chance;
+            this.type = type;
 
         }
 
