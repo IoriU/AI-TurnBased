@@ -47,9 +47,11 @@ MonoBehaviour:
   name: Parry
   skillOwner: {fileID: 0}
   skillPos: 1
-  cd: 0
-  useToEvo: -1
+  cd: 3
+  useToEvo: 3
   curUse: 0
-  nextEvo: {fileID: 0}
+  nextEvo: {fileID: -4430128130015967054, guid: f7fd579d102b53c498319ffa0db6e8d6, type: 3}
   targetTeam: 0
-  helper: []
+  helper:
+  - baseValue: 50
+    statRatio: 0.3

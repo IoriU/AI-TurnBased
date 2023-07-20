@@ -15,7 +15,7 @@ public class Skill : MonoBehaviour
     public string name;
 
     //Stat for skill cooldown
-    public Character.Skill skillOwner;
+    public Character.Base skillOwner;
     public int skillPos;
 
     public int cd;
@@ -43,7 +43,7 @@ public class Skill : MonoBehaviour
             curCd = cd;
         }
     }
-    public void SetSkillOwner(Character.Skill chr, int pos)
+    public void SetSkillOwner(Character.Base chr, int pos)
     {
         skillOwner = chr;
         skillPos = pos;

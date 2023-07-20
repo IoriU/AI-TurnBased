@@ -47,6 +47,12 @@ namespace Character
             speedBarObj.UpdateVal(speedBar);
         }
 
+        public void BoostSpeedBar(float ratio)
+        {
+            speedBar += 100 * ratio;
+            speedBarObj.UpdateVal(speedBar);
+        }
+
         public void NextTurn()
         {
             speedBar = 0;

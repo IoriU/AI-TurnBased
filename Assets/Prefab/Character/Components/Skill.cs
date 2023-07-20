@@ -17,18 +17,20 @@ namespace Character {
 
         public float critChance = 0.15f;
         public float critDamage = 1.5f;
-        
-       
+
+        private Base chara;
+
+
         // Start is called before the first frame update
         void Start()
         {
             curAtk = atk;
-           
+            chara = GetComponent<Base>();
             for (int i = 0; i < skills.Length; i++)
             {
 
                 global::Skill skill = Instantiate(skills[i], skillsRoot).GetComponent<global::Skill>();
-                skill.SetSkillOwner(this, i);
+                skill.SetSkillOwner(chara, i);
                 skills[i] = skill;
             }
             
@@ -37,7 +39,7 @@ namespace Character {
         public void Evolution(global::Skill evoSkill, int pos)
         {
             global::Skill skill = Instantiate(evoSkill, skillsRoot).GetComponent<global::Skill>();
-            skill.SetSkillOwner(this, pos);
+            skill.SetSkillOwner(chara, pos);
             Destroy(skills[pos].gameObject);
             skills[pos] = skill;
         }

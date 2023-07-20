@@ -764,7 +764,7 @@ MonoBehaviour:
   charTurn: {fileID: 0}
   uiController: {fileID: 476747709}
   gameWatcher: {fileID: 0}
-  dummySkill: {fileID: 0}
+  dummySkill: {fileID: 816196559373223368, guid: 96ca363cad284af4faece497fde5eb6b, type: 3}
 --- !u!4 &476747707
 Transform:
   m_ObjectHideFlags: 0
