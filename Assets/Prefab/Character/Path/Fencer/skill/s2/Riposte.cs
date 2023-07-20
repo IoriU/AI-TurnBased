@@ -11,8 +11,8 @@ public class Riposte : FencerSkill
         //print(ally[selfPos]);
         ResetTarget();
         Character.StatusEffectManager seManager = skillOwner.GetComponent<Character.StatusEffectManager>();
-        seManager.ApplyStatusEffect(new Counter("counter", 1, 0f, 1f, 1));
-        seManager.ApplyStatusEffect(new DefenseStatus("counter_def", 1, 0.2f, 1f, 1));
+        seManager.ApplyStatusEffect(new Counter("counter", 1, 0, 0, 1f, 1));
+        seManager.ApplyStatusEffect(new DefenseStatus("counter_def", 1, 0, 0.2f, 1, 1));
         base.ActivateSkill(selfPos, targetPos, ally, enemy);
     }
 
@@ -21,7 +21,7 @@ public class Riposte : FencerSkill
 
         float damage = skillOwner.skill.CalculateDamage(helper[0].baseValue, helper[0].statRatio);
         enemy[targetPos].health.TakeDamage(damage);
-        enemy[targetPos].seManager.ApplyStatusEffect(new StunStatus("stun", 1, 0, 0.8f, -1));
+        enemy[targetPos].seManager.ApplyStatusEffect(new StunStatus("stun", 1, 0, 0, 0.8f, -1));
         skillOwner.speed.BoostSpeedBar(0.2f);
     }
 
