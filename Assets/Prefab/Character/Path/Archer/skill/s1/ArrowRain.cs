@@ -10,7 +10,7 @@ public class ArrowRain : ArcherSkill
     {
         //print(skillOwner);
         //print(ally[selfPos]);
-        float damage = skillOwner.CalculateDamage(helper[0].baseValue, helper[0].statRatio);
+        float damage = skillOwner.skill.CalculateDamage(helper[0].baseValue, helper[0].statRatio);
         //Debug.Log("berhasil calculate");
 
         //Attack last two row enemy
