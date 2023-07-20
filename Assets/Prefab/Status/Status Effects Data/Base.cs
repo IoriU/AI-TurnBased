@@ -12,7 +12,6 @@ namespace StatusEffect {
         public float intensity;
         public float chance;
 
-
         public Base(string name, int duration, float intensity, float chance)
         {
             this.name = name;
@@ -28,6 +27,8 @@ namespace StatusEffect {
         public virtual void RemoveEffect(Character.Base chara)
         { }
         public virtual void HandleEffectPerTurn(Character.Base chara) { }
+
+        public virtual void HandleEffectOnTurn(Character.Base chara) { }
     }
 
 }

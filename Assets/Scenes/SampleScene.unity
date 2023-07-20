@@ -186,6 +186,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2635306846599579982, guid: 20a476abe648d5a4b9bd262fe97d0e42, type: 3}
+      propertyPath: skills.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2635306846599579982, guid: 20a476abe648d5a4b9bd262fe97d0e42, type: 3}
+      propertyPath: skills.Array.data[0]
+      value: 
+      objectReference: {fileID: 816196559373223368, guid: 96ca363cad284af4faece497fde5eb6b, type: 3}
     - target: {fileID: 2856764361332422223, guid: 20a476abe648d5a4b9bd262fe97d0e42, type: 3}
       propertyPath: speed
       value: 
@@ -937,6 +945,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2635306846599579982, guid: 20a476abe648d5a4b9bd262fe97d0e42, type: 3}
+      propertyPath: skills.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2635306846599579982, guid: 20a476abe648d5a4b9bd262fe97d0e42, type: 3}
+      propertyPath: skills.Array.data[0]
+      value: 
+      objectReference: {fileID: 816196559373223368, guid: 96ca363cad284af4faece497fde5eb6b, type: 3}
     - target: {fileID: 2856764361332422223, guid: 20a476abe648d5a4b9bd262fe97d0e42, type: 3}
       propertyPath: speed
       value: 
@@ -1975,6 +1991,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2635306846599579982, guid: 20a476abe648d5a4b9bd262fe97d0e42, type: 3}
+      propertyPath: skills.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2635306846599579982, guid: 20a476abe648d5a4b9bd262fe97d0e42, type: 3}
+      propertyPath: skills.Array.data[0]
+      value: 
+      objectReference: {fileID: 816196559373223368, guid: 96ca363cad284af4faece497fde5eb6b, type: 3}
     - target: {fileID: 2856764361332422223, guid: 20a476abe648d5a4b9bd262fe97d0e42, type: 3}
       propertyPath: speed
       value: 
@@ -2346,6 +2370,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2635306846599579982, guid: 20a476abe648d5a4b9bd262fe97d0e42, type: 3}
+      propertyPath: skills.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2635306846599579982, guid: 20a476abe648d5a4b9bd262fe97d0e42, type: 3}
+      propertyPath: skills.Array.data[0]
+      value: 
+      objectReference: {fileID: 816196559373223368, guid: 96ca363cad284af4faece497fde5eb6b, type: 3}
     - target: {fileID: 2856764361332422223, guid: 20a476abe648d5a4b9bd262fe97d0e42, type: 3}
       propertyPath: speed
       value: 

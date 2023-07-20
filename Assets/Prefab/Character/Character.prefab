@@ -77,6 +77,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
+  curHp: 0
   hpBar: {fileID: 1310817323025673815}
   def: 0
   curDef: 0
@@ -96,6 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   atk: 0
+  curAtk: 0
   skills: []
   skillsRoot: {fileID: 6814704931013365816}
   critChance: 0.15
@@ -114,6 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   battleState: 0
   speed: 0
+  curSpeed: 0
   speedBar: 0
   speedBarObj: {fileID: 4518905042514336694}
   barRatio: 20
