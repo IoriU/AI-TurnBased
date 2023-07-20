@@ -8,7 +8,7 @@ namespace StatusEffect
     public class Counter : Base
     {
         private UniqueEffect.Counter counter;
-        public Counter(string name, int duration, float intensity, float chance) : base(name, duration, intensity, chance)
+        public Counter(string name, int duration, float intensity, float chance, int type) : base(name, duration, intensity, chance, type)
         {
         }
 

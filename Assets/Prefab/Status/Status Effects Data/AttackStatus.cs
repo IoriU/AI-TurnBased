@@ -7,7 +7,7 @@ namespace StatusEffect
 {
     public class AttackStatus : Base
     {
-        public AttackStatus(string name, int duration, float intensity, float chance) : base(name, duration, intensity, chance)
+        public AttackStatus(string name, int duration, float intensity, float chance, int type) : base(name, duration, intensity, chance, type)
         {
         }
 
