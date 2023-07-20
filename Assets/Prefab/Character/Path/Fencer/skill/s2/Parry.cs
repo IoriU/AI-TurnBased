@@ -10,8 +10,8 @@ public class Parry : FencerSkill
         //print(skillOwner);
         //print(ally[selfPos]);
         ResetTarget();
-        skillOwner.seManager.ApplyStatusEffect(new Counter("counter", 1, 0f, 1f, 1));
-        skillOwner.seManager.ApplyStatusEffect(new DefenseStatus("counter_def", 1, 0.2f, 1f, 1));
+        skillOwner.seManager.ApplyStatusEffect(new Counter("counter", 1, 0, 0, 1f, 1));
+        skillOwner.seManager.ApplyStatusEffect(new DefenseStatus("counter_def", 1, 0, 0.2f, 1f, 1));
         base.ActivateSkill(selfPos, targetPos, ally, enemy);
     }
 
