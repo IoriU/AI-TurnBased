@@ -1,15 +1,17 @@
+using StatusEffect;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEditor;
 using UnityEngine;
 
-public class ArrowRain : ArcherSkill
+public class StormFlight : ArcherSkill
 {
     public override void ActivateSkill(int selfPos, int targetPos, Character.Base[] ally, Character.Base[] enemy)
     {
         //print(skillOwner);
         //print(ally[selfPos]);
+
         float damage = skillOwner.CalculateDamage(helper[0].baseValue, helper[0].statRatio);
         //Debug.Log("berhasil calculate");
 
@@ -17,15 +19,18 @@ public class ArrowRain : ArcherSkill
         for (int i = enemy.Length - 2; i < enemy.Length; i++)
         {
             enemy[i].health.TakeDamage(damage);
+            enemy[i].seManager.ApplyStatusEffect(new BleedingStatus("bleeding-1f", 3, 100, 0.5f));
             //Debug.Log("Hit For " + enemy[i].name);
         }
+
 
         base.ActivateSkill(selfPos, targetPos, ally, enemy);
     }
 
     public override void UniqueSkill(int selfPos, int targetPos, Character.Base[] ally, Character.Base[] enemy)
     {
-
+        float damage = skillOwner.CalculateDamage(helper[0].baseValue, helper[0].statRatio);
+        enemy[targetPos].health.TakeDamage(damage);
         base.ActivateSkill(selfPos, targetPos, ally, enemy);
     }
 

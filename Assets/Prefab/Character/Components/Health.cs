@@ -9,7 +9,8 @@ namespace Character
     {
         //Health prop.
         public float hp; //Initial / base hp from character
-        private float curHp; //Current hp after taking some damage or get some heal
+        [HideInInspector]
+        public float curHp; //Current hp after taking some damage or get some heal
         public ProgressBar hpBar; //For UI purpose
 
         //Defence prop.

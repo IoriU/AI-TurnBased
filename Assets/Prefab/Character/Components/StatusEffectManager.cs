@@ -56,6 +56,7 @@ namespace Character
                 if (eff.duration <= 0)
                 {
                     RemoveEffect(eff);
+                    break;
                 } else
                 {
                     //Kurangi durasi effect
@@ -68,6 +69,14 @@ namespace Character
                 //Debug.Log(effects);
             }      
             
+        }
+
+        public void HandleEffectOnTurn()
+        {
+            foreach (StatusEffect.Base eff in effects.Values)
+            {
+                eff.HandleEffectOnTurn(this.GetComponent<Base>());
+            }
         }
 
         

@@ -35,7 +35,7 @@ PrefabInstance:
     - target: {fileID: 1548973011455003503, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
       propertyPath: skills.Array.data[1]
       value: 
-      objectReference: {fileID: 2645436061529059263, guid: 07cb44e8bfa493040bdf3c7be75c1544, type: 3}
+      objectReference: {fileID: 2645436061529059263, guid: e8d7b16f7264ccb4893632a7233493f8, type: 3}
     - target: {fileID: 2040079504981496569, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -228,6 +228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5749f6e53d42c44ab14dda4fdb6dc08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  root: {fileID: 0}
 --- !u!58 &2797528768401586725
 CircleCollider2D:
   m_ObjectHideFlags: 0
