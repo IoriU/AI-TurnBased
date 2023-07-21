@@ -193,12 +193,16 @@ public class GameController : MonoBehaviour
     public void NextTurn()
     {
         //Handling Status Effect
-        if (charTurn.seManager.effects.Count > 0)
+        if (charTurn && charTurn.seManager.effects.Count > 0)
         {
             charTurn.seManager.HandleEffectTimer();
         }
 
-        charTurn.speed.NextTurn();
+        if(charTurn)
+        {
+            charTurn.speed.NextTurn();
+        }
+        
         charTurn = null;
         uiController.NextTurn();
         gameWatcher.NextTurn();

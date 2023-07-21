@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4128567151367166789}
-  - component: {fileID: 2645436061529059263}
+  - component: {fileID: 3518518082886584784}
   m_Layer: 0
   m_Name: ArrowRain
   m_TagString: Untagged
@@ -30,9 +30,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2645436061529059263
+--- !u!114 &3518518082886584784
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -46,9 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Arrow Rain
   skillOwner: {fileID: 0}
-  skillPos: 2
+  skillPos: 0
   cd: 0
-  useToEvo: 4
+  useToEvo: 2
   curUse: 0
   nextEvo: {fileID: 3663970301575872636, guid: 3ef4680c318d7e44b839d4c91041fd3a, type: 3}
   targetTeam: 2

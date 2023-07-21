@@ -49,11 +49,14 @@ namespace Character
 
         public void HandleEffectTimer()
         {
-            // Update the status effect timers           
-            foreach(StatusEffect.Base eff in effects.Values)
-           
+            // Update the status effect timers
+            //Create for loop to get effects.Values
+
+            /*for(int i = 0; i < effects.Count; i++)
             {
-                if (eff.duration <= 0)
+                StatusEffect.Base eff = effects.Values.ElementAt(i);
+
+                if(eff.duration <= 0)
                 {
                     RemoveEffect(eff);
                     break;
@@ -65,18 +68,45 @@ namespace Character
                     //Jalankan effect per turn
                     eff.HandleEffectPerTurn(this.GetComponent<Base>());
                 }
-                
-                //Debug.Log(effects);
-            }      
-            
+            }  */
+
+            List<StatusEffect.Base> effectValues = effects.Values.ToList();
+
+            foreach (StatusEffect.Base eff in effectValues)
+            {
+                if (eff.duration <= 0)
+                {
+                    RemoveEffect(eff);
+                }
+                else
+                {
+                    eff.duration--;
+                    eff.HandleEffectPerTurn(this.GetComponent<Base>());
+                }
+            }
         }
 
         public void HandleEffectOnTurn()
         {
-            foreach (StatusEffect.Base eff in effects.Values)
+
+            List<StatusEffect.Base> effectValues = effects.Values.ToList();
+
+            foreach (StatusEffect.Base eff in effectValues)
             {
                 eff.HandleEffectOnTurn(this.GetComponent<Base>());
             }
+
+            for (int i = 0; i < effects.Count; i++)
+            {
+                StatusEffect.Base eff = effects.Values.ElementAt(i);
+                eff.HandleEffectOnTurn(this.GetComponent<Base>());
+            }
+
+
+            /*foreach (StatusEffect.Base eff in effects.Values)
+            {
+                eff.HandleEffectOnTurn(this.GetComponent<Base>());
+            }*/
         }
 
         
