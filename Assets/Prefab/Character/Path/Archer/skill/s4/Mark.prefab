@@ -52,4 +52,6 @@ MonoBehaviour:
   curUse: 0
   nextEvo: {fileID: 0}
   targetTeam: 2
-  helper: []
+  helper:
+  - baseValue: 200
+    statRatio: 1

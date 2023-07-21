@@ -11,13 +11,9 @@ public class  Mark : ArcherSkill
     {
         float damage = skillOwner.skill.CalculateDamage(helper[0].baseValue, helper[0].statRatio);
 
-        //Attack last two row enemy
-        for (int i = enemy.Length - 2; i < enemy.Length; i++)
-        {
-            enemy[i].seManager.ApplyStatusEffect(new BleedingStatus("bleeding-2f", 3, 200,0, 0.75f, -1));
-
-        }
-
+        //Mark One Enemy
+        enemy[targetPos].seManager.ApplyStatusEffect(new MarkStatus("Mark", 2, 0, 0, 1, -1));
+        
         base.ActivateSkill(selfPos, targetPos, ally, enemy);
     }
 
@@ -30,6 +26,6 @@ public class  Mark : ArcherSkill
 
     public override Character.Base[] GetTargetSelection(Character.Base[] teams)
     {
-        return new Character.Base[] { teams[teams.Length - 1], teams[teams.Length - 2] };
+        return teams;
     }
 }
