@@ -17,6 +17,43 @@ namespace Character
         public Dictionary<string, StatusEffect.Base> effects = new Dictionary<string, StatusEffect.Base>();
 
         public Transform root;
+
+        public bool RemoveStatusEffect(int type)
+        {
+            return RemoveStatusEffect(type, effects.Count);
+        }
+
+        public bool RemoveStatusEffect(int type, int k)
+        {
+            // Temp nama buat dihapus
+            List<string> deletedKey = new List<string>();
+
+            foreach (KeyValuePair<string, StatusEffect.Base> pair in effects)
+            {
+                string key = pair.Key;
+                StatusEffect.Base eff = pair.Value;
+
+                // Check buff atau debuff
+                if (eff.type == type)
+                {
+                    deletedKey.Add(key);
+                    // Kalau udah k dihapus, maka break
+                    if (k-- == 0) break;
+                }
+            }
+
+            foreach (string key in deletedKey)
+            {
+                RemoveEffect(effects[key]);
+                // hapus dari dictionary
+                effects.Remove(key);
+            }
+
+            // Kalau ada yg dihapus, maka retrun True
+            return deletedKey.Count > 0 ? true : false;
+        }
+
+
         public void ApplyStatusEffect(StatusEffect.Base effect)
         {
            // Gacha check
