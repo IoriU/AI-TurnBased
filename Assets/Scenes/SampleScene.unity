@@ -2303,11 +2303,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6642396018463509954, guid: 50e01b1ca3d1b5e4abc628936da18a75, type: 3}
       propertyPath: speed
-      value: 1
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6642396018463509954, guid: 50e01b1ca3d1b5e4abc628936da18a75, type: 3}
       propertyPath: speedBar
-      value: 99
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7652623231701152495, guid: 50e01b1ca3d1b5e4abc628936da18a75, type: 3}
       propertyPath: m_Enabled
@@ -2489,6 +2489,10 @@ PrefabInstance:
     - target: {fileID: 3288369495343780056, guid: 20a476abe648d5a4b9bd262fe97d0e42, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3465485020092390070, guid: 20a476abe648d5a4b9bd262fe97d0e42, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4530467571330064886, guid: 20a476abe648d5a4b9bd262fe97d0e42, type: 3}
       propertyPath: m_AnchorMax.x

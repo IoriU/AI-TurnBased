@@ -17,6 +17,7 @@ namespace Character
         public Health health;
         public Speed speed;
         public Skill skill;
+        public Path path;
 
         //Status Effect Manager
         public StatusEffectManager seManager;
@@ -29,8 +30,21 @@ namespace Character
             speed = GetComponent<Speed>();
             skill = GetComponent<Skill>();
             seManager = GetComponent<StatusEffectManager>();
+            TryGetComponent<Path>(out path);
         }
 
+        public void YourTurn()
+        {
+            speed.YourTurn();
+            seManager.HandleEffectOnTurn();
+        }
+
+        public void NextTurn()
+        {
+            speed.NextTurn();
+        }
+
+        
 
 
     }

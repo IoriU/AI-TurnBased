@@ -6,6 +6,7 @@ namespace UniqueEffect
 {
     public class Counter : Base
     {
+        public Skill skill;
         public override void SetupTrigger(Character.Base chara)
         {
             
@@ -21,7 +22,7 @@ namespace UniqueEffect
             Debug.Log("FULL COUNTER dari " + chara.name + " ke " + ally[gameController.charTurn.pos]);
             if (chara != gameController.charTurn)
             {
-                chara.skill.skills[0].UniqueSkill(0, gameController.charTurn.pos, enemy, ally);
+                skill.UniqueSkill(0, gameController.charTurn.pos, enemy, ally);
             }
             
         }

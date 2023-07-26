@@ -34,7 +34,7 @@ public class Skill : MonoBehaviour
 
     // sama kaya start manualz
 
-    private void Start()
+    public virtual void Start()
     {
         curCd = 0;
         curUse = 0;

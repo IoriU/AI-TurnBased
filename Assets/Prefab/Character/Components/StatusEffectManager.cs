@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -16,6 +17,43 @@ namespace Character
         public Dictionary<string, StatusEffect.Base> effects = new Dictionary<string, StatusEffect.Base>();
 
         public Transform root;
+
+        public bool RemoveStatusEffect(int type)
+        {
+            return RemoveStatusEffect(type, effects.Count);
+        }
+
+        public bool RemoveStatusEffect(int type, int k)
+        {
+            // Temp nama buat dihapus
+            List<string> deletedKey = new List<string>();
+
+            foreach (KeyValuePair<string, StatusEffect.Base> pair in effects)
+            {
+                string key = pair.Key;
+                StatusEffect.Base eff = pair.Value;
+
+                // Check buff atau debuff
+                if (eff.type == type)
+                {
+                    deletedKey.Add(key);
+                    // Kalau udah k dihapus, maka break
+                    if (k-- == 0) break;
+                }
+            }
+
+            foreach (string key in deletedKey)
+            {
+                RemoveEffect(effects[key]);
+                // hapus dari dictionary
+                effects.Remove(key);
+            }
+
+            // Kalau ada yg dihapus, maka retrun True
+            return deletedKey.Count > 0 ? true : false;
+        }
+
+
         public void ApplyStatusEffect(StatusEffect.Base effect)
         {
            // Gacha check
@@ -24,19 +62,33 @@ namespace Character
                 
                 StatusEffect.Base oldEffect;
                 //Add Status Effect to the list
+                
+                // cek apakah buff nya udah ada atau belum
                 if (effects.TryGetValue(effect.name, out oldEffect))
                 {
-                    RemoveEffect(oldEffect);
-                }
-                //Trigger Status Effect
-                effect.ApplyEffect(GetComponent<Base>());
-                effects.Add(effect.name, effect);
+                    // cek lebih lama durasi yang mana
+                    if (oldEffect.duration > effect.duration)
+                    {
+                        RemoveEffect(oldEffect);
+                        //Trigger Status Effect
+                        effect.ApplyEffect(GetComponent<Base>());
+                        effects.Add(effect.name, effect);
 
+                    } else
+                    {
+                        Debug.Log("Status yg sebelumnya masih tegang");
+                    }
+                } else 
+                {
+                        //Trigger Status Effect
+                        effect.ApplyEffect(GetComponent<Base>());
+                        effects.Add(effect.name, effect);
+                }
             } else
             {
                 Debug.Log("MAMPUS MISS");
             }
-            
+
         }
         
 
@@ -47,17 +99,28 @@ namespace Character
             effects.Remove(status.name);
         }
 
-        public void HandleEffectTimer()
+        public void HandleEffectEndTurn()
         {
+
+            ;
+        }
+
+        public void HandleEffectOnTurn()
+        {
+            // list temporary buat catet yg mau dihapus
+            List<string> deletedKey = new List<string>();
             // Update the status effect timers           
-            foreach(StatusEffect.Base eff in effects.Values)
-           
+            foreach (KeyValuePair<string, StatusEffect.Base> pair in effects)
             {
+                string key = pair.Key;
+                StatusEffect.Base eff = pair.Value;
+
                 if (eff.duration <= 0)
                 {
-                    RemoveEffect(eff);
-                    break;
-                } else
+                    // catet key yg udah abis durasi
+                    deletedKey.Add(key);
+                }
+                else
                 {
                     //Kurangi durasi effect
                     eff.duration--;
@@ -65,35 +128,20 @@ namespace Character
                     //Jalankan effect per turn
                     eff.HandleEffectPerTurn(this.GetComponent<Base>());
                 }
-                
-                //Debug.Log(effects);
-            }      
-            
-        }
 
-        public void HandleEffectOnTurn()
-        {
-            foreach (StatusEffect.Base eff in effects.Values)
+                //Debug.Log(effects);
+            }
+            // hapus yg durasinya 0
+            foreach (string key in deletedKey)
             {
-                eff.HandleEffectOnTurn(this.GetComponent<Base>());
+                RemoveEffect(effects[key]);
+                // hapus dari dictionary
+                effects.Remove(key);
             }
         }
 
         
     }
 
-    public class EffectDict
-    {
-        int duration;
-        StatusEffect.Base status;
-        UniqueEffect.Base unique;
-
-        public EffectDict(int duration, StatusEffect.Base status, UniqueEffect.Base unique)
-        {
-            this.duration = duration;
-            this.status = status;
-            this.unique = unique;
-        }
-    }
 
 }

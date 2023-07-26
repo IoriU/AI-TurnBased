@@ -148,7 +148,7 @@ public class GameController : MonoBehaviour
                 battleState = BattleState.TEAM2;
             }
 
-            charTurn.speed.YourTurn();
+            charTurn.YourTurn();
             uiController.SetSkillButtons(charTurn.skill.skills);
         }
     }
@@ -195,10 +195,10 @@ public class GameController : MonoBehaviour
         //Handling Status Effect
         if (charTurn.seManager.effects.Count > 0)
         {
-            charTurn.seManager.HandleEffectTimer();
+            charTurn.seManager.HandleEffectEndTurn();
         }
 
-        charTurn.speed.NextTurn();
+        charTurn.NextTurn();
         charTurn = null;
         uiController.NextTurn();
         gameWatcher.NextTurn();

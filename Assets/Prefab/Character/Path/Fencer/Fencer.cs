@@ -4,10 +4,29 @@ using UnityEngine;
 
 namespace Character
 {
-    public class Fencer : Base
+    public class Fencer : Path
     {
-        // Start is called before the first frame update
-        private string className = "Fencer";
+
+        //[HideInInspector]
+        public int target;
+        //[HideInInspector]
+        public int maxHit;
+        //[HideInInspector]
+        public int curHit;
+        public bool ignoreS2;
+
+        private void Start()
+        {
+            target = -1;
+            maxHit = 3;
+            curHit = 1;
+            ignoreS2 = false;
+        }
+
+        
+
+
+
     }
 
 }
