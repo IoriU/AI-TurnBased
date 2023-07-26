@@ -36,16 +36,6 @@ namespace Character
 
         public void TakeDamage(float val, float defRatio)
         {
-            //NYOBA KALO ADA STATUS MARK DI KARAKTER BAKAL NINGKATIN VAL SEBESAR 1.5x
-            if (GetComponent<StatusEffectManager>().effects.Count > 0)
-            {
-                if (GetComponent<StatusEffectManager>().effects.ContainsKey("Mark"))
-                {
-                    val *= 1.5f;
-                }
-            }
-                
-
             float damage = val - defRatio * curDef;
             //Debug.Log(string.Format("{0} take {1} damages.", name, damage));
             curHp -= damage;

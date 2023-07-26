@@ -54,7 +54,7 @@ namespace UniqueEffect
             }
             //gameController.teams2[targetIndex].seManager.ApplyStatusEffect(new BleedingStatus("bleeding-bp", 3, 300, 0, 1f, 0));
 
-            Debug.Log("INI HARUSNYA ADA NJIR");
+            //Debug.Log("INI HARUSNYA ADA NJIR");
 
 
         }

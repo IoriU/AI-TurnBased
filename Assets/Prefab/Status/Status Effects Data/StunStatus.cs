@@ -14,6 +14,7 @@ namespace StatusEffect
         public override void ApplyEffect(Character.Base chara)
         {
             Debug.Log("Applied Stun Status to this Chara: " + chara.name);
+
         }
 
         public override void RemoveEffect(Character.Base chara)
