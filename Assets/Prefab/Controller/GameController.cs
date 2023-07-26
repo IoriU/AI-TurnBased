@@ -38,7 +38,7 @@ public class GameController : MonoBehaviour
 
     //For UI Purpose
     public UiController uiController;
-    public GameWatcher gameWatcher;
+    public TeamController teamController;
 
     public Skill dummySkill;
     private bool flag;
@@ -65,7 +65,7 @@ public class GameController : MonoBehaviour
         //Abis setup Tim, langsung masuk ke dalem state LOOP
         battleState = BattleState.LOOP;
         uiController = GetComponent<UiController>();
-        gameWatcher = GetComponent<GameWatcher>();
+        teamController = GetComponent<TeamController>();
 
     }
 
@@ -149,7 +149,8 @@ public class GameController : MonoBehaviour
             }
 
             charTurn.YourTurn();
-            uiController.SetSkillButtons(charTurn.skill.skills);
+            teamController.SetupTurn(charTurn);
+            //uiController.SetSkillButtons(charTurn.skill.skills);
         }
     }
 
@@ -201,7 +202,7 @@ public class GameController : MonoBehaviour
         charTurn.NextTurn();
         charTurn = null;
         uiController.NextTurn();
-        gameWatcher.NextTurn();
+        teamController.NextTurn();
         battleState = BattleState.LOOP;
     }
 }

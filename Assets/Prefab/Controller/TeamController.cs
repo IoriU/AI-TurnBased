@@ -4,10 +4,11 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameWatcher : MonoBehaviour
+public class TeamController : MonoBehaviour
 {
-    //GameWatcher nge-watch kelas GameController, jadi harus punya GameController dong
+    //GameController nge-watch kelas GameController, jadi harus punya GameController dong
     public GameController gameController;
+    public UiController uiController;
     //Skill yang sedang digunakan di turn ini
     public Skill skill;
     //Target character(s) serangan dari skill yang sedang digunakan 
@@ -19,10 +20,20 @@ public class GameWatcher : MonoBehaviour
     public Button[] team2;
     private bool isRun;
 
+    public int burstMaxEnergy;
+    [SerializeField]
+    private int burstEnergy;
+
     private void Start()
     {
         gameController = GameController.instance;
+        uiController = gameController.uiController;
         
+    }
+
+    public void SetupTurn(Character.Base chara)
+    {
+        uiController.SetSkillButtons(chara.skill.skills, burstEnergy >= burstMaxEnergy);
     }
 
     void Update()
@@ -43,6 +54,7 @@ public class GameWatcher : MonoBehaviour
                 {
                     // aktifin skill
                     isRun = true;
+                    burstEnergy++;
                     gameController.ActivateSkill(skill, target);
                     
 
@@ -125,5 +137,6 @@ public class GameWatcher : MonoBehaviour
         skill = null;
         target = null;
         isRun = false;
+        burstEnergy++;
     }
 }

@@ -50,6 +50,15 @@ public class Skill : MonoBehaviour
 
     }
 
+    public bool IsReady()
+    {
+        return curCd == 0; 
+    }
+
+    public void ReduceCooldown()
+    {
+        curCd = curCd-- < 0 ? 0 : curCd;
+    }
     //Jalankan skill
     public virtual void ActivateSkill(int selfPos, int targetPos, Character.Base[] ally, Character.Base[] enemy)
 

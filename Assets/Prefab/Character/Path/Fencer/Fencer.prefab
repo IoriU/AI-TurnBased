@@ -26,7 +26,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1548973011455003503, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
       propertyPath: skills.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1548973011455003503, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
       propertyPath: skills.Array.data[0]
@@ -44,6 +44,10 @@ PrefabInstance:
       propertyPath: skills.Array.data[3]
       value: 
       objectReference: {fileID: 760011784783914031, guid: da60c77bde3427442a005687cd0b0276, type: 3}
+    - target: {fileID: 1548973011455003503, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
+      propertyPath: skills.Array.data[4]
+      value: 
+      objectReference: {fileID: -7832663470025441106, guid: 9dfc3bc970aaeda4b98a028590c6c6a8, type: 3}
     - target: {fileID: 2040079504981496569, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

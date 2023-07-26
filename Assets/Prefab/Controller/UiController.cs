@@ -3,25 +3,39 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEditor.Experimental.GraphView;
+using UnityEngine.UI;
 
 public class UiController : MonoBehaviour
 {
     // Start is called before the first frame update
+    public Button[] buttons;
     public TextMeshProUGUI[] texts;
     public Skill[] skills;
-    public GameWatcher watcher;
+    public TeamController watcher;
 
     private void Start()
     {
-        watcher = GetComponent<GameWatcher>();
+        watcher = GetComponent<TeamController>();
     }
-    public void SetSkillButtons(Skill[] skills)
+    public void SetSkillButtons(Skill[] skills, bool isBurstReady)
     {
         this.skills = skills;
-        for (int i = 0; i < skills.Length; i++)
+        for (int i = 0; i < 5; i++)
         {
+            TextMeshProUGUI text = buttons[i].GetComponent<TextMeshProUGUI>();
             Skill skill = skills[i];
             texts[i].text = skill.name;   
+            if (!skill.IsReady())
+            {
+                buttons[i].interactable = false;
+            }
+        }
+        if (isBurstReady)
+        {
+            buttons[4].interactable = true;
+        } else
+        {
+            buttons[4].interactable = false;
         }
     }
 

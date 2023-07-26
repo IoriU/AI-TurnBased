@@ -42,6 +42,7 @@ namespace Character
         public void NextTurn()
         {
             speed.NextTurn();
+            skill.NextTurn();
         }
 
         
