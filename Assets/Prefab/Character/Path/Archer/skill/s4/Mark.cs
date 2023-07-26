@@ -5,18 +5,15 @@ using System.Runtime.InteropServices;
 using UnityEditor;
 using UnityEngine;
 
-public class PrecisionArrow : ArcherSkill
+public class  Mark : ArcherSkill
 {
     public override void ActivateSkill(int selfPos, int targetPos, Character.Base[] ally, Character.Base[] enemy)
     {
-        //print(skillOwner);
-        //print(ally[selfPos]);
-        //Debug.Log("berhasil calculate");
+        float damage = skillOwner.skill.CalculateDamage(helper[0].baseValue, helper[0].statRatio);
 
-        //Apply Stun Effect Tes to Self
-        skillOwner.GetComponent<Character.StatusEffectManager>().ApplyStatusEffect(new StunStatus("stun-1", 3, 0f,0f, 1f,-1));
-        enemy[targetPos].seManager.ApplyStatusEffect(new ChargingStatus("charging", 3, 500,0, 1.0f, -1));
-
+        //Mark One Enemy
+        enemy[targetPos].seManager.ApplyStatusEffect(new MarkStatus("Mark", 2, 0, 0, 1, -1));
+        
         base.ActivateSkill(selfPos, targetPos, ally, enemy);
     }
 

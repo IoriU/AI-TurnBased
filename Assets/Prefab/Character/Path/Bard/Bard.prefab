@@ -26,12 +26,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1548973011455003503, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
       propertyPath: skills.Array.size
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1548973011455003503, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
       propertyPath: skills.Array.data[0]
       value: 
-      objectReference: {fileID: 3518518082886584784, guid: 07cb44e8bfa493040bdf3c7be75c1544, type: 3}
+      objectReference: {fileID: 3518518082886584784, guid: a96098a10e20ca44ca5561c2cca74ba3, type: 3}
     - target: {fileID: 1548973011455003503, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
       propertyPath: skills.Array.data[1]
       value: 
@@ -134,7 +134,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2196423711278381494, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
       propertyPath: name
-      value: Archer
+      value: Bard
       objectReference: {fileID: 0}
     - target: {fileID: 2572842065424553526, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
       propertyPath: m_AnchorMax.x
@@ -146,7 +146,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3767065949991102383, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
       propertyPath: m_Name
-      value: Archer
+      value: Bard
       objectReference: {fileID: 0}
     - target: {fileID: 5446044204519199993, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
       propertyPath: m_AnchorMax.x
@@ -182,7 +182,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6053360055297815226, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
       propertyPath: hp
-      value: 400
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 6053360055297815226, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
       propertyPath: def

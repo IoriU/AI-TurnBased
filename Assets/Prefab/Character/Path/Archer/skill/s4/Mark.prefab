@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4128567151367166789}
-  - component: {fileID: 3254812809837522893}
+  - component: {fileID: -5571542958293711089}
   m_Layer: 0
-  m_Name: DeepWound
+  m_Name: Mark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3254812809837522893
+--- !u!114 &-5571542958293711089
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,16 +41,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 5195791668095594583}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cc72d84741742042b09346b7d9f6634, type: 3}
+  m_Script: {fileID: 11500000, guid: d17ddc2ba64fbdf47a7954e142a8a680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Deep Wound
+  name: Mark
   skillOwner: {fileID: 0}
   skillPos: 0
   cd: 0
-  useToEvo: 1
+  useToEvo: 0
   curUse: 0
-  nextEvo: {fileID: 2047279934505150309, guid: fd44318a14fa83f448521575638b8dd0, type: 3}
+  nextEvo: {fileID: 0}
   targetTeam: 2
   helper:
   - baseValue: 200

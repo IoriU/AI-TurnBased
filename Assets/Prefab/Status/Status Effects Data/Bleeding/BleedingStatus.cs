@@ -14,6 +14,7 @@ namespace StatusEffect
         public override void ApplyEffect(Character.Base chara)
         {
             Debug.Log("This chara kena Bleeding: " + chara.name);
+            //chara.health.TakeDamage(300, 1.0f);
         }
 
         public override void RemoveEffect(Character.Base chara)

@@ -14,6 +14,7 @@ namespace StatusEffect
         public override void ApplyEffect(Character.Base chara)
         {
             Debug.Log("Applied Stun Status to this Chara: " + chara.name);
+
         }
 
         public override void RemoveEffect(Character.Base chara)
@@ -27,7 +28,7 @@ namespace StatusEffect
         }
 
         public override void HandleEffectOnTurn(Character.Base chara) {
-            Debug.Log("This chara kena Stun Status: " + duration);
+            //Debug.Log("This chara kena Stun Status: " + duration);
             GameController gameController = GameController.instance;
             gameController.NextTurn();
         }

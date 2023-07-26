@@ -78,6 +78,7 @@ namespace Character
         //Ganti Battle State Character
         public void YourTurn()
         {
+            //Debug.Log("THIS CHARA TURN: " + this.name);
             battleState = BattleState.TURN;
             speedBar = 0;
             speedBarObj.UpdateVal(speedBar);
