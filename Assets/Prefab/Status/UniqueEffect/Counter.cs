@@ -19,10 +19,10 @@ namespace UniqueEffect
             
             GameController gameController = GameController.instance;
             (Character.Base[] ally, Character.Base[] enemy) = gameController.GetCurrentAllyEnemy();
-            Debug.Log("FULL COUNTER dari " + chara.name + " ke " + ally[gameController.charTurn.pos]);
-            if (chara != gameController.charTurn)
+            Debug.Log("FULL COUNTER dari " + chara.name + " ke " + ally[gameController.charaTurn.pos]);
+            if (chara != gameController.charaTurn)
             {
-                skill.UniqueSkill(0, gameController.charTurn.pos, enemy, ally);
+                skill.UniqueSkill(0, gameController.charaTurn.pos, enemy, ally);
             }
             
         }
