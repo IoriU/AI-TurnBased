@@ -19,7 +19,7 @@ public class Skill : MonoBehaviour
     public int skillPos;
 
     public int cd;
-    private int curCd;
+    public int curCd;
     //EXP needed for skill Evo
     public int useToEvo;
     public int curUse;
@@ -57,7 +57,7 @@ public class Skill : MonoBehaviour
 
     public void ReduceCooldown()
     {
-        curCd = curCd-- < 0 ? 0 : curCd;
+        curCd = --curCd < 0 ? 0 : curCd;
     }
     //Jalankan skill
     public virtual void ActivateSkill(int selfPos, int targetPos, Character.Base[] ally, Character.Base[] enemy)

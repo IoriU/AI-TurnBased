@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BladeTempest : Skill
+public class BladeTempest : Burst
 {
     public override void ActivateSkill(int selfPos, int targetPos, Character.Base[] ally, Character.Base[] enemy)
     {
@@ -20,6 +20,7 @@ public class BladeTempest : Skill
                 enemy[target].speed.AbsorbSpeedBar(20f);
             }
         }
+        base.ActivateSkill(selfPos, targetPos, ally, enemy);
     }
 
     public override Character.Base[] GetTargetSelection(Character.Base[] teams)

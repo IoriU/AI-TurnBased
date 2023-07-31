@@ -11,12 +11,8 @@ public class UiController : MonoBehaviour
     public Button[] buttons;
     public TextMeshProUGUI[] texts;
     public Skill[] skills;
-    public TeamController watcher;
+    public PlayerController player;
 
-    private void Start()
-    {
-        watcher = GetComponent<TeamController>();
-    }
     public void SetSkillButtons(Skill[] skills, bool isBurstReady)
     {
         this.skills = skills;
@@ -28,6 +24,9 @@ public class UiController : MonoBehaviour
             if (!skill.IsReady())
             {
                 buttons[i].interactable = false;
+            } else
+            {
+                buttons[i].interactable = true;
             }
         }
         if (isBurstReady)
@@ -41,7 +40,7 @@ public class UiController : MonoBehaviour
 
     public void OnButtonClick(int n)
     {
-        watcher.SetSkill(skills[n]);
+        player.SetSkill(skills[n]);
         
     }
 
