@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Mark
   skillOwner: {fileID: 0}
-  skillPos: 0
+  skillPos: 4
   cd: 0
   useToEvo: 0
   curUse: 0

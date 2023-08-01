@@ -26,16 +26,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1548973011455003503, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
       propertyPath: skills.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1548973011455003503, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
       propertyPath: skills.Array.data[0]
       value: 
-      objectReference: {fileID: 3518518082886584784, guid: a96098a10e20ca44ca5561c2cca74ba3, type: 3}
+      objectReference: {fileID: 1150086581244627609, guid: a96098a10e20ca44ca5561c2cca74ba3, type: 3}
     - target: {fileID: 1548973011455003503, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
       propertyPath: skills.Array.data[1]
       value: 
-      objectReference: {fileID: 7592427108418048908, guid: e8d7b16f7264ccb4893632a7233493f8, type: 3}
+      objectReference: {fileID: -3183272841981375083, guid: 8d141abd275ef0342bdc1f5d02632393, type: 3}
     - target: {fileID: 1548973011455003503, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
       propertyPath: skills.Array.data[2]
       value: 
@@ -130,7 +130,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2196423711278381494, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
       propertyPath: pos
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2196423711278381494, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
       propertyPath: name
@@ -190,7 +190,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7954160877006641839, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7954160877006641839, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
       propertyPath: m_Color.g
@@ -198,7 +198,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7954160877006641839, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
       propertyPath: m_Color.r
-      value: 0.06632781
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7954160877006641839, guid: 337280c8c1481bf4fb88897b53780b13, type: 3}
       propertyPath: m_SortingLayer

@@ -23,6 +23,11 @@ namespace StatusEffect
             chara.skill.curAtk -= baseInstensity;
         }
 
+        public override void HandleEffectOnTurn(Character.Base chara)
+        {
+            //base.HandleEffectOnTurn(chara);
+        }
+
         public override void HandleEffectPerTurn(Character.Base chara)
         {
             //Ini Buat DoT

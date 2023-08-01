@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Deepest Wound
   skillOwner: {fileID: 0}
-  skillPos: 0
+  skillPos: 3
   cd: 0
   useToEvo: -1
   curUse: 0

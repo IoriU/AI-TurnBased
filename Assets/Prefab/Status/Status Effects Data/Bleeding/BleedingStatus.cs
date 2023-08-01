@@ -19,14 +19,20 @@ namespace StatusEffect
 
         public override void RemoveEffect(Character.Base chara)
         {
-            
+            //Debug.Log("Bleeding Status Removed from: " + chara.name + ", on Duration: " + duration);
+        }
+
+        public override void HandleEffectOnTurn(Character.Base chara)
+        {
+            //Ini Buat DoT
+            Debug.Log("Bleeding DoT on: " + chara.name + ", for " + baseInstensity);
+            //Debug.Log("Bleeding Duration: " + duration);
+            chara.health.TakeDamage(baseInstensity, 1.0f);
         }
 
         public override void HandleEffectPerTurn(Character.Base chara)
         {
-            //Ini Buat DoT
-            Debug.Log("Bleeding DoT on: " + chara.name + ", for " + baseInstensity);
-            chara.health.TakeDamage(baseInstensity, 1.0f);
+            
         }
     }
 

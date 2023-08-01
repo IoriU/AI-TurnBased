@@ -44,7 +44,7 @@ namespace UniqueEffect
             for (int i = lowerBound; i < targetIndex; i++)
             {
                 Debug.Log($"Adjacent element at index {i}: {gameController.teams2[i]}");
-                gameController.teams2[i].seManager.ApplyStatusEffect(new BleedingStatus("bleeding-bp", 3, 200, 0, 1, -1));
+                gameController.teams2[i].seManager.ApplyStatusEffect(new BleedingStatus("bleeding-bp", 6, 200, 0, 1, -1));
                 //gameController.teams2[i].health.TakeDamage(300, 1.0f);
             }
             for (int i = targetIndex + 1; i <= upperBound; i++)

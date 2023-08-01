@@ -46,7 +46,15 @@ namespace Character
 
         public void Heal(float val)
         {
-            throw new System.NotImplementedException();
+            //implement heal function
+            curHp += val;
+            if (curHp > hp)
+            {
+                curHp = hp;
+            }
+            hpBar.UpdateVal(curHp);
+
+
         }
     }
 

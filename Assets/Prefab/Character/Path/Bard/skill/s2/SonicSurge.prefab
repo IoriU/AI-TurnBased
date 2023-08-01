@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4128567151367166789}
-  - component: {fileID: 1150086581244627609}
+  - component: {fileID: -3183272841981375083}
   m_Layer: 0
-  m_Name: MelodicResonance
+  m_Name: SonicSurge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1150086581244627609
+--- !u!114 &-3183272841981375083
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,17 +41,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5195791668095594583}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a69c9ca61f3e1d94d82c744811ffad79, type: 3}
+  m_Script: {fileID: 11500000, guid: 485f31ee124a00247b4c6649a61c0c05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Melodic Resonance
+  name: Sonic Surge
   skillOwner: {fileID: 0}
   skillPos: 0
   cd: 0
   useToEvo: 1
   curUse: 0
-  nextEvo: {fileID: 1700808214609042342, guid: 295e0fb76ddee5c488392dbb32260b81, type: 3}
-  targetTeam: 1
-  helper:
-  - baseValue: 200
-    statRatio: 1
+  nextEvo: {fileID: 0}
+  targetTeam: 2
+  helper: []

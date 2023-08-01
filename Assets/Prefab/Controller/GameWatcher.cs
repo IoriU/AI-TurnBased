@@ -63,11 +63,7 @@ public class GameWatcher : MonoBehaviour
     public void SetTarget()
     {
         //Refresh Selected Target COlor
-        foreach (Character.Base chr in gameController.teams2)
-        {
-            chr.GetComponentInChildren<SpriteRenderer>().color = Color.red;
-        }
-        foreach (Character.Base chr in gameController.teams1)
+        foreach (Character.Base chr in gameController.allChar)
         {
             chr.GetComponentInChildren<SpriteRenderer>().color = Color.white;
         }
@@ -87,7 +83,14 @@ public class GameWatcher : MonoBehaviour
 
         foreach (Character.Base chr in selectableTarget)
         {
-            chr.GetComponentInChildren<SpriteRenderer>().color = Color.green;
+            if(skill.targetTeam == SkillEnum.Target.Enemy)
+            {
+                chr.GetComponentInChildren<SpriteRenderer>().color = Color.red;
+            } else
+            {
+                chr.GetComponentInChildren<SpriteRenderer>().color = Color.green;
+            }
+            
         }
         
         //Cek jika mouse klik kiri melakukan input, supaya raycast tidak dijalankan tiap thickkk
@@ -113,7 +116,8 @@ public class GameWatcher : MonoBehaviour
                 //Ganti Warna Musuh Ke semula
                 foreach (Character.Base chr in selectableTarget)
                 {
-                    chr.GetComponentInChildren<SpriteRenderer>().color = Color.red;
+                    chr.GetComponentInChildren<SpriteRenderer>().color = Color.white;
+
                 }
             }
         }

@@ -14,7 +14,7 @@ public class DeepWound : ArcherSkill
         //Attack last two row enemy
         for (int i = enemy.Length - 2; i < enemy.Length; i++)
         {
-            enemy[i].seManager.ApplyStatusEffect(new BleedingStatus("bleeding-2f", 3, 200,0, 0.75f, -1));
+            enemy[i].seManager.ApplyStatusEffect(new BleedingStatus("bleeding-2f", 6, 200,0, 0.75f, -1));
 
         }
 

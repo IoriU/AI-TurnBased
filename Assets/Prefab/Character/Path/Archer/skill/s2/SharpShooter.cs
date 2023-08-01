@@ -15,7 +15,7 @@ public class SharpShooter : ArcherSkill
 
         //Apply Stun Effect Tes to Self
         skillOwner.GetComponent<Character.StatusEffectManager>().ApplyStatusEffect(new StunStatus("stun-1", 3, 0f,0f, 1f,-1));
-        enemy[targetPos].seManager.ApplyStatusEffect(new ChargingStatus("charging-1", 3, 500,0, 1.0f, -1));
+        enemy[targetPos].seManager.ApplyStatusEffect(new ChargingStatus("charging-1", 6, 500,0, 1.0f, -1));
         base.ActivateSkill(selfPos, targetPos, ally, enemy);
     }
 

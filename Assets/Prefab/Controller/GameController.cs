@@ -107,7 +107,7 @@ public class GameController : MonoBehaviour
             }
 
         }
-        else if (battleState == BattleState.TEAM2 && !flag)
+        else if (battleState == BattleState.TEAM2)
         {
             flag = !flag;
             ActivateSkill(dummySkill, teams1[0]);
@@ -149,7 +149,13 @@ public class GameController : MonoBehaviour
             }
 
             charTurn.speed.YourTurn();
-            uiController.SetSkillButtons(charTurn.skill.skills);
+
+            if(charTurn)
+            {
+                //Debug.Log("This character turn: " + charTurn.name);
+                uiController.SetSkillButtons(charTurn.skill.skills);
+            }
+            
         }
     }
 
@@ -173,7 +179,15 @@ public class GameController : MonoBehaviour
         if (battleState == BattleState.TEAM1)
         {
             userPos = Array.IndexOf(teams1, charTurn);
-            targetPos = Array.IndexOf(teams2, target);
+            //Cek apabila target ally atau enemy
+            if(skill.targetTeam == SkillEnum.Target.Ally)
+            {
+                targetPos = Array.IndexOf(teams1, target);
+            } else if (skill.targetTeam == SkillEnum.Target.Enemy)
+            {
+                targetPos = Array.IndexOf(teams2, target);
+            }
+            //targetPos = Array.IndexOf(teams2, target);
             ally = teams1;
             enemy = teams2;
         } else if (battleState == BattleState.TEAM2)
@@ -184,9 +198,7 @@ public class GameController : MonoBehaviour
                 enemy = teams1;
             }
         skill.ActivateSkill(userPos, targetPos, ally, enemy);
-        NextTurn();
-
-        
+        NextTurn();       
     }
 
     //Main Next Turn Container
@@ -195,7 +207,7 @@ public class GameController : MonoBehaviour
         //Handling Status Effect
         if (charTurn && charTurn.seManager.effects.Count > 0)
         {
-            charTurn.seManager.HandleEffectTimer();
+            charTurn.seManager.HandleEffectEndTurn();
         }
 
         if(charTurn)

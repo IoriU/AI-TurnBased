@@ -7,7 +7,7 @@ public class DummySkill : Skill
 {
     public override void ActivateSkill(int selfPos, int targetPos, Character.Base[] ally, Character.Base[] enemy)
     {
-        enemy[targetPos].health.TakeDamage(1);
+        enemy[targetPos].health.TakeDamage(100);
 
         base.ActivateSkill(selfPos, targetPos, ally, enemy);
     }
