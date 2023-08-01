@@ -6,14 +6,14 @@ using System.Xml;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
-using Random = UnityEngine.Random;
+using Random = UnityEngine.Random;  
 
 namespace Character
 {
     public class StatusEffectManager : MonoBehaviour
     {
         //public Dictionary<StatusEffect.BaseType, int> effectTimers = new Dictionary<StatusEffect.BaseType, int>();
-
+        
         public Dictionary<string, StatusEffect.Base> effects = new Dictionary<string, StatusEffect.Base>();
 
         public Transform root;
@@ -56,13 +56,13 @@ namespace Character
 
         public void ApplyStatusEffect(StatusEffect.Base effect)
         {
-            // Gacha check
+           // Gacha check
             if (Random.Range(0f, 1f) < effect.chance)
             {
-
+                
                 StatusEffect.Base oldEffect;
                 //Add Status Effect to the list
-
+                
                 // cek apakah buff nya udah ada atau belum
                 if (effects.TryGetValue(effect.name, out oldEffect))
                 {
@@ -74,26 +74,23 @@ namespace Character
                         effect.ApplyEffect(GetComponent<Base>());
                         effects.Add(effect.name, effect);
 
-                    }
-                    else
+                    } else
                     {
                         Debug.Log("Status yg sebelumnya masih tegang");
                     }
-                }
-                else
+                } else 
                 {
-                    //Trigger Status Effect
-                    effect.ApplyEffect(GetComponent<Base>());
-                    effects.Add(effect.name, effect);
+                        //Trigger Status Effect
+                        effect.ApplyEffect(GetComponent<Base>());
+                        effects.Add(effect.name, effect);
                 }
-            }
-            else
+            } else
             {
                 Debug.Log("MAMPUS MISS");
             }
 
         }
-
+        
 
         public void RemoveEffect(StatusEffect.Base status)
         {
@@ -143,7 +140,7 @@ namespace Character
             }
         }
 
-
+        
     }
 
 

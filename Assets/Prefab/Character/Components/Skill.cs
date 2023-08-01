@@ -69,6 +69,14 @@ namespace Character {
             return GachaCrit(damage);
 
         }
+
+        public void NextTurn()
+        {
+            foreach (global::Skill skill in skills)
+            {
+                skill.ReduceCooldown();
+            }
+        }
     }
 
 }

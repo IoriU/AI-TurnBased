@@ -10,9 +10,10 @@ public class Riposte : FencerSkill
         //print(skillOwner);
         //print(ally[selfPos]);
         ResetTarget();
-        Character.StatusEffectManager seManager = skillOwner.GetComponent<Character.StatusEffectManager>();
-        seManager.ApplyStatusEffect(new Counter("counter", 1, 0, 0, 1f, 1));
-        seManager.ApplyStatusEffect(new DefenseStatus("counter_def", 1, 0, 0.2f, 1, 1));
+        Counter counter = new Counter("counter", 1, 0, 0, 1f, 1);
+        skillOwner.seManager.ApplyStatusEffect(counter);
+        counter.SetCounterSkill(this);
+        skillOwner.seManager.ApplyStatusEffect(new DefenseStatus("counter_def", 1, 0, 0.2f, 1, 1));
         base.ActivateSkill(selfPos, targetPos, ally, enemy);
     }
 

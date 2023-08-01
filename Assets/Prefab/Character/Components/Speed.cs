@@ -53,10 +53,25 @@ namespace Character
             speedBarObj.UpdateVal(speedBar);
         }
 
+        public float AbsorbSpeedBar(float baseVal)
+        {
+            Debug.Log(string.Format("absorbed {0} speedBar from {1}", transform.parent.name, speedBar));
+            if (speedBar < baseVal)
+            {
+                float temp = speedBar;
+                speedBar = 0;
+                Debug.Log(string.Format("to {0}", speedBar));
+                return temp;
+            } else
+            {
+                speedBar -= baseVal;
+                Debug.Log(string.Format("to {0}", speedBar));
+                return baseVal;
+            }
+        }
+
         public void NextTurn()
         {
-            speedBar = 0;
-            speedBarObj.UpdateVal(speedBar);
             battleState = BattleState.IDLE;
         }
 
@@ -65,6 +80,8 @@ namespace Character
         {
             //Debug.Log("THIS CHARA TURN: " + this.name);
             battleState = BattleState.TURN;
+            speedBar = 0;
+            speedBarObj.UpdateVal(speedBar);
         }
     }
 

@@ -1,35 +1,48 @@
+using Character;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class FencerSkill : Skill
 {
-    private int target;
 
-    private void Start()
+    public Character.Fencer path;
+
+    public override void Start()
     {
-        target = -1;
+        path = (Fencer)skillOwner.path;
+        base.Start();
     }
 
     protected void ResetTarget()
     {
-        target = -1;
+        path.target = -1;
+        path.curHit = 1;
+        path.ignoreS2 = true;
     }
 
     public override void ActivateSkill(int selfPos, int targetPos, Character.Base[] ally, Character.Base[] enemy)
     {
-        if (target == targetPos)
+        if (path.ignoreS2)
         {
-            target++;
-            for (int i = 0; i < target; i++)
+            path.ignoreS2 = false;
+        } else if (path.target == targetPos)
+        {
+            
+            for (int i = 0; i < path.curHit; i++)
             {
                 skillOwner.skill.skills[0].UniqueSkill(0, targetPos, ally, enemy);
                 print("follow up " + i);
             }
+            
+            if (path.curHit < path.maxHit)
+            {
+                path.curHit++;
+            }
         }
         else
         {
-            target = targetPos;
+            path.target = targetPos;
         }
         base.ActivateSkill(selfPos, targetPos, ally, enemy);
     }

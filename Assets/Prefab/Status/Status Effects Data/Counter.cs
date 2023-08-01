@@ -18,6 +18,10 @@ namespace StatusEffect
             counter.SetupTrigger(chara);
         }
 
+        public void SetCounterSkill(Skill skill)
+        {
+            counter.skill = skill;
+        }
         public override void RemoveEffect(Character.Base chara)
         {
             Object.Destroy(counter);
